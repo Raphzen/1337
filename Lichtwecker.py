@@ -71,7 +71,7 @@ if __name__ == '__main__':
             if current_time == Wake_Up and current_day == 0 or 1 or 2 or 3 or 4:
                 print("HI")
                 Lichtwecker(strip)
-            if current_time == "05:30:00"
+            if current_time == "05:30:00":
                 for i in range(0, strip.numPixels()):
                     strip.setPixelColor(i, Color(0,0,0))
                 strip.show()
