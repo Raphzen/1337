@@ -54,8 +54,8 @@ if __name__ == '__main__':
 
     try:
         while True:
-            current_time=time.time()
-            Alarm=time.time()
+            current_time=time.strftime("%X")
+            Alarm=time.strftime("%X")
             print(current_time)
             if current_time == Alarm:
                 Lichtwecker(strip)
