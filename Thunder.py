@@ -6,7 +6,7 @@
 # various animations on a strip of NeoPixels.
 
 
-#windgeschwindigkeiten für Cloud Geschwindigkeit abfragen???
+#windgeschwindigkeiten für Cloud Geschwindigkeit abfragen
 import time
 from neopixel import *
 import argparse
