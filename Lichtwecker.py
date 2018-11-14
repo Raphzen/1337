@@ -56,7 +56,7 @@ if __name__ == '__main__':
             current_time=time.time.now()
             Alarm=time.time.now()
             print(current_time)
-            if current_time = Alarm:
+            if current_time == Alarm:
                 Lichtwecker(strip)
 
     except KeyboardInterrupt:
