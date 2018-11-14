@@ -29,11 +29,12 @@ x              = 0
 Current_Conditions=""
            
 def Lichtwecker(strip):
-    x=x+0.425  
-    for i in range(0, strip.numPixels()):
-        strip.setPixelColor(i, Color(255,255,255))
-        strip.setBrightness(x)
-        LED_BRIGHTNESS = x
+    for start_time in range(0, 600)
+        x=x+0.425  
+        for i in range(0, strip.numPixels()):
+            strip.setPixelColor(i, Color(255,255,255))
+            strip.setBrightness(x)
+            LED_BRIGHTNESS = x
     time.sleep(1)      
         
     
