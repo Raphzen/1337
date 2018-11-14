@@ -125,7 +125,9 @@ if __name__ == '__main__':
                 humidity=int(weather_com_result['current_conditions']['humidity'])
                 Current_Conditions=weather_com_result['current_conditions']['text']
                 print("Aktuelles Wetter: " + Current_Conditions)
-            
+
+            Current_Conditions="T-Storm"
+
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
                 print(wait_ms)
