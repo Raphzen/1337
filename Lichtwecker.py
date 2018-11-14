@@ -25,12 +25,14 @@ LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
 LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
+Wake_Up_Time   = "17:40:00"
 Current_Conditions=""
            
 def Lichtwecker(strip):
     x=0
     for start_time in range(0, 255):
         print(start_time)
+        print(time.strftime("%X"))
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(i, Color(255,255,255))
             strip.setBrightness(x)
@@ -57,13 +59,13 @@ if __name__ == '__main__':
 
     try:
         while True:
-            current_time=1#time.strftime("%X")
-            Alarm=1#time.strftime("%X")
+            current_time=time.strftime("%X")
             #print(current_time)
-            if current_time == Alarm:
+            if current_time == Wake_Up_Time
                 print("HI")
                 Lichtwecker(strip)
 
     except KeyboardInterrupt:
         if args.clear:
             colorWipe(strip, Color(0,0,0))
+            strip.show()
