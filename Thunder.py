@@ -117,7 +117,7 @@ if __name__ == '__main__':
         start_time=0
         while True:
             current_time=time.time()
-            if (current_time-start_time)>300:
+            if (current_time-start_time)>3:
                 start_time=time.time()
                 weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
                 temperature=int(weather_com_result['current_conditions']['temperature'])
