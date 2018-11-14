@@ -7,6 +7,7 @@
 
 
 import datetime
+import time
 from neopixel import *
 import argparse
 from random import *
