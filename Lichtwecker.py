@@ -69,7 +69,7 @@ if __name__ == '__main__':
             current_time=str(time.strftime("%X"))
             print(current_time)
             print(current_day)
-            if current_time == Wake_Up and current_day in ("0","1","2","3","4"):
+            if current_time == Wake_Up and current_day in (0,1,2,3,4):
                 print("HI")
                 Lichtwecker(strip)
             if current_time == "05:30:00":
