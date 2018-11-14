@@ -35,6 +35,7 @@ def Lichtwecker(strip):
             strip.setPixelColor(i, Color(255,255,255))
             strip.setBrightness(x)
         x=x+1
+        strip.show()
         time.sleep(2.35)      
         
     
