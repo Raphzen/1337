@@ -32,10 +32,9 @@ def Lichtwecker(strip):
     for start_time in range(0, 600):
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(i, Color(255,255,255))
-            y=round(x,0)
-            strip.setBrightness(y)
-        x=x+0.425  
-        time.sleep(1)      
+            strip.setBrightness(x)
+        x=x+1
+        time.sleep(2.35)      
         
     
 # Main program logic follows:
