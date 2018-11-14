@@ -4,7 +4,6 @@
 #
 # Direct port of the Arduino NeoPixel library strandtest example.  Showcases
 # various animations on a strip of NeoPixels.
-# windgeschwindigkeiten für Cloud Geschwindigkeit abfragen
 
 
 import time
