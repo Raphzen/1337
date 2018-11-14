@@ -59,9 +59,9 @@ if __name__ == '__main__':
 
     try:
         while True:
-            current_time=time.strftime("%X")
+            current_time=str(time.strftime("%X"))
             print(current_time)
-            if current_time == Wake_Up:
+            if current_time >= Wake_Up:
                 print("HI")
                 Lichtwecker(strip)
 
