@@ -27,9 +27,7 @@ LED_INVERT     = False  # True to invert the signal (when using NPN transistor l
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 Wake_Up   = "18:08:00"
 
-for i in range(0, strip.numPixels()):
-    strip.setPixelColor(i, Color(0,0,0))
-strip.show()
+
            
 def Lichtwecker(strip):
     x=0
@@ -60,6 +58,11 @@ if __name__ == '__main__':
     if not args.clear:
         print('Use "-c" argument to clear LEDs on exit')
 
+
+    for i in range(0, strip.numPixels()):
+        strip.setPixelColor(i, Color(0,0,0))
+    strip.show()
+
     try:
         while True:
             current_time=str(time.strftime("%X"))
@@ -70,5 +73,6 @@ if __name__ == '__main__':
 
     except KeyboardInterrupt:
         if args.clear:
-            colorWipe(strip, Color(0,0,0))
+            for i in range(0, strip.numPixels()):
+                strip.setPixelColor(i, Color(0,0,0))
             strip.show()
