@@ -25,7 +25,7 @@ LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
 LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
-Wake_Up   = "17:01:00"
+Wake_Up   = "18:08:00"
 
 Current_Conditions=""
 
@@ -36,7 +36,7 @@ def Lichtwecker(strip):
         print(start_time)
         print(time.strftime("%X"))
         for i in range(0, strip.numPixels()):
-            strip.setPixelColor(i, Color(255,255,255))
+            strip.setPixelColor(i, Color(255,209,163))
             strip.setBrightness(x)
         x=x+1
         strip.show()
