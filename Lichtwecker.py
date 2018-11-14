@@ -27,7 +27,7 @@ LED_INVERT     = False  # True to invert the signal (when using NPN transistor l
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 Wake_Up   = "18:08:00"
 
-colorWipe(strip, Color(0,0,0))
+strip.setPixelColor(strip, Color(0,0,0))
 strip.show()
            
 def Lichtwecker(strip):
