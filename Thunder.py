@@ -30,7 +30,7 @@ Current_Conditions=""
 
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
-                    + array[0:len(array) - n]) 
+            + array[0:len(array) - n]) 
 
 def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
