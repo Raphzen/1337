@@ -12,7 +12,7 @@ import argparse
 from random import *
 import pywapi
 import string
-import numpy as np
+import numpy
 
 
 # LED strip configuration:
