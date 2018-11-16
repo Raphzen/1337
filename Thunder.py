@@ -28,6 +28,9 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 Current_Conditions=""
 
+def rotate(array, n):
+    array = (array[len(array) - n:len(array)]  
+                    + array[0:len(array) - n]) 
 
 def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
@@ -69,10 +72,8 @@ def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
         flash(strip)
            
 def Mostly_Cloudy(strip):
-    
     Color_Array = []
     run_once=0
-    #erst CLoud dann Sky dann Cloud dann Sky
     strip.setPixelColor(1, Color(135,206,250))
     if run_once==0:
         for i in range(0, strip.numPixels()):
@@ -89,9 +90,9 @@ def Mostly_Cloudy(strip):
                 strip.setPixelColor(k, Color_Array[k])
             strip.show()
             
-            Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
-                    + Color_Array[0:len(Color_Array) - 1]) 
-            time.sleep(100/1000.0)
+            rotate(Color_Array, 1)# = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
+                    #+ Color_Array[0:len(Color_Array) - 1]) 
+            time.sleep(1000/1000.0)
         for l in range(0, Sky):
             Color_Array[1]=Color(0,0,255)
             for m in range(0, strip.numPixels()):
@@ -99,7 +100,7 @@ def Mostly_Cloudy(strip):
             strip.show()
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
                     + Color_Array[0:len(Color_Array) - 1]) 
-            time.sleep(100/1000.0)
+            time.sleep(1000/1000.0)
 
         
 
