@@ -13,6 +13,7 @@ from random import *
 import pywapi
 import string
 import numpy
+import array
 
 
 # LED strip configuration:
