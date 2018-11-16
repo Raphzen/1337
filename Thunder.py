@@ -187,6 +187,17 @@ if __name__ == '__main__':
                 if randint(0,10) >8:
                     thunder(strip)       
                     
+            if Current_Conditions=="Thunder":
+                wait_ms=randint(2, 10)
+                print(wait_ms)
+                time.sleep(wait_ms)
+                print( "Thunder animations!")
+                thunder(strip)
+                if randint(0,10) >8:
+                    thunder(strip)
+                if randint(0,10) >8:
+                    thunder(strip)    
+            
             if Current_Conditions=="Thunder in the Vicinity":
                 wait_ms=randint(2, 10)
                 print(wait_ms)
