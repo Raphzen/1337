@@ -152,7 +152,7 @@ if __name__ == '__main__':
                 Current_Conditions=weather_com_result['current_conditions']['text']
                 print("Aktuelles Wetter: " + Current_Conditions)
 
-            #Current_Conditions="Mostly Cloudy"
+            Current_Conditions="Mostly Cloudy"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
@@ -165,6 +165,19 @@ if __name__ == '__main__':
                 if randint(0,10) >8:
                     thunder(strip)
                     
+
+             if Current_Conditions=="Heavy T-Storm / Windy":
+                wait_ms=randint(2, 10)
+                print(wait_ms)
+                time.sleep(wait_ms)
+                print( "Thunder animations!")
+                thunder(strip)
+                if randint(0,10) >8:
+                    thunder(strip)
+                if randint(0,10) >8:
+                    thunder(strip)
+
+
             if Current_Conditions=="Scattered Thunderstorms":
                 wait_ms=randint(2, 10)
                 print(wait_ms)
