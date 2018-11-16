@@ -167,15 +167,15 @@ if __name__ == '__main__':
                     
 
             if Current_Conditions=="Heavy T-Storm / Windy":
-            wait_ms=randint(2, 10)
-            print(wait_ms)
-            time.sleep(wait_ms)
-            print( "Thunder animations!")
-            thunder(strip)
-            if randint(0,10) >8:
+                wait_ms=randint(2, 10)
+                print(wait_ms)
+                time.sleep(wait_ms)
+                print( "Thunder animations!")
                 thunder(strip)
-            if randint(0,10) >8:
-                thunder(strip)
+                if randint(0,10) >8:
+                    thunder(strip)
+                if randint(0,10) >8:
+                    thunder(strip)
 
 
             if Current_Conditions=="Scattered Thunderstorms":
