@@ -74,11 +74,10 @@ def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
 def Mostly_Cloudy(strip):
     Color_Array = []
     run_once=0
-    strip.setPixelColor(1, Color(0,0,250))
     if run_once==0:
         for i in range(0, strip.numPixels()):
             Color_Array.append(i)
-            Color_Array[i]=Color(0,191,255)
+            Color_Array[i]=Color(0,0,255)
             strip.setPixelColor(i, Color_Array[i])
         run_once=1
     while 1:
