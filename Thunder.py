@@ -152,7 +152,7 @@ if __name__ == '__main__':
                 Current_Conditions=weather_com_result['current_conditions']['text']
                 print("Aktuelles Wetter: " + Current_Conditions)
 
-            Current_Conditions="Mostly Cloudy"
+            #Current_Conditions="Mostly Cloudy"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
