@@ -68,9 +68,10 @@ def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
 def Mostly_Cloudy(strip):
     Cloud=randint(30,40)
     Sky=randint(2,10)
+    #erst CLoud dann Sky dann Cloud dann Sky
     strip.setPixelColor(1, Color(255,255,255))
     for i in range(0, strip.numPixels()):
-        cr=getPixelColor(strip.numPixels()-i-1)
+        cr=getPixelColor(strip.Numpixels())
         strip.setPixelColor(strip.numPixels()-i, cr)
         #for j in range(0, strip.numPixels()):
          #   for k in range(Cloud):
