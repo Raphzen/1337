@@ -74,13 +74,15 @@ def Mostly_Cloudy(strip):
     Cloud=randint(30,40)
     Sky=randint(2,10)
     Color_Array = []
+    run_once=0
     #erst CLoud dann Sky dann Cloud dann Sky
     strip.setPixelColor(1, Color(255,255,255))
-    
-    for i in range(0, strip.numPixels()):
-        Color_Array.append(i)
-        Color_Array[i]=Color(0,0,255)
-        strip.setPixelColor(i, Color_Array[i])
+    if run_once==0:
+        for i in range(0, strip.numPixels()):
+            Color_Array.append(i)
+            Color_Array[i]=Color(0,0,255)
+            strip.setPixelColor(i, Color_Array[i])
+        run_once=1
     for j in range(0, Cloud):
         Color_Array[1]=Color(255,255,255)
         for k in range(0, strip.numPixels()):
@@ -152,7 +154,7 @@ if __name__ == '__main__':
                 Current_Conditions=weather_com_result['current_conditions']['text']
                 print("Aktuelles Wetter: " + Current_Conditions)
 
-            #Current_Conditions="Mostly Cloudy"
+            Current_Conditions="Mostly Cloudy"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
