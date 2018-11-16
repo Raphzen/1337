@@ -90,8 +90,8 @@ def Mostly_Cloudy(strip):
                 strip.setPixelColor(k, Color_Array[k])
             strip.show()
             
-            rotate(Color_Array, 1)# = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
-                    #+ Color_Array[0:len(Color_Array) - 1]) 
+            Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
+                    + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(1000/1000.0)
         for l in range(0, Sky):
             Color_Array[1]=Color(0,0,255)
