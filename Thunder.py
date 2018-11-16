@@ -81,7 +81,7 @@ def Mostly_Cloudy(strip):
              #   x=strip.getPixelColor(strip.numPixels()-q)
               #  strip.setPixelColor(strip.numPixels()-q+1, x)
                # strip.show()
-            time.sleep(10/1000.0)
+    time.sleep(10/1000.0)
 
     
     
