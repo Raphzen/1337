@@ -27,6 +27,10 @@ LED_INVERT     = False  # True to invert the signal (when using NPN transistor l
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 Current_Conditions=""
+
+def rotate(l, n):
+    return l[n:] + l[:n]
+
 def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
     temperature=int(weather_com_result['current_conditions']['temperature'])
@@ -82,14 +86,14 @@ def Mostly_Cloudy(strip):
         for k in range(0, strip.numPixels()):
             strip.setPixelColor(k, Color_Array[k])
         strip.show()
-        Color_Array.rotate(1)
+        rotate(Color_Array, 1)
         time.sleep(10/1000.0)
     for l in range(0, Sky):
         Color_Array[1]=Color(0,0,255)
         for m in range(0, strip.numPixels()):
             strip.setPixelColor(m, Color_Array[m])
         strip.show()
-        Color_Array.rotate(1)
+        rotate(Color_Array,1)
         time.sleep(10/1000.0)
         #strip.setPixelColor(strip.numPixels()-i, cr)
         #for j in range(0, strip.numPixels()):
