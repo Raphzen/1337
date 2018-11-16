@@ -90,7 +90,7 @@ def Mostly_Cloudy(strip):
             
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
                     + Color_Array[0:len(Color_Array) - 1]) 
-            time.sleep(10/1000.0)
+            time.sleep(100/1000.0)
         for l in range(0, Sky):
             Color_Array[1]=Color(0,0,255)
             for m in range(0, strip.numPixels()):
@@ -98,7 +98,7 @@ def Mostly_Cloudy(strip):
             strip.show()
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
                     + Color_Array[0:len(Color_Array) - 1]) 
-            time.sleep(10/1000.0)
+            time.sleep(100/1000.0)
 
         
 
