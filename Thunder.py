@@ -77,14 +77,14 @@ def Mostly_Cloudy(strip):
     if run_once==0:
         for i in range(0, strip.numPixels()):
             Color_Array.append(i)
-            Color_Array[i]=Color(0,0,255)
+            Color_Array[i]=Color(0,191,255)
             strip.setPixelColor(i, Color_Array[i])
         run_once=1
     while 1:
         Cloud=randint(15,30)
         Sky=randint(10,20)
         for j in range(0, Cloud):
-            Color_Array[1]=Color(255,255,255)
+            Color_Array[1]=Color(179,179,179)
             for k in range(0, strip.numPixels()):
                 strip.setPixelColor(k, Color_Array[k])
             strip.show()
