@@ -66,20 +66,22 @@ def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
         flash(strip)
            
 def Mostly_Cloudy(strip):
-    for lol in range(0, strip.numPixels()):
-        Cloud=randint(30,40)
-        j=0
-        Sky=randint(2,10)
-        for i in range(0, strip.numPixels()):
-            for j in range(Cloud):
-                strip.setPixelColor(j, Color(255,255,255))
-            else:
-                strip.setPixelColor(0, Color(255,80,255))
-            for q in range(strip.numPixels()):
-                x=strip.getPixelColor(strip.numPixels()-q)
-                strip.setPixelColor(strip.numPixels()-q+1, x)
-                strip.show()
-            time.sleep(100/1000.0)
+    Cloud=randint(30,40)
+    Sky=randint(2,10)
+    strip.setPixelColor(1, Color(255,255,255))
+    for i in range(0, strip.numPixels())
+        Color=getPixelColor(strip.numPixels()-i-1)
+        strip.setPixelColor(strip.numPixels()-i, Color)
+        #for j in range(0, strip.numPixels()):
+         #   for k in range(Cloud):
+          #      strip.setPixelColor(j, Color(255,255,255))
+           # else:
+            #    strip.setPixelColor(0, Color(255,80,255))
+            #for l in range(strip.numPixels()):
+             #   x=strip.getPixelColor(strip.numPixels()-q)
+              #  strip.setPixelColor(strip.numPixels()-q+1, x)
+               # strip.show()
+            time.sleep(10/1000.0)
 
     
     
@@ -126,6 +128,7 @@ if __name__ == '__main__':
                 Current_Conditions=weather_com_result['current_conditions']['text']
                 print("Aktuelles Wetter: " + Current_Conditions)
 
+             Current_Conditions="Mostly Cloudy"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
