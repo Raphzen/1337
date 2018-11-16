@@ -28,8 +28,6 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 Current_Conditions=""
 
-def rotate(l, n):
-    return l[-n:] + l[:-n]  #n wahlweise + doer -
 
 def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
@@ -83,33 +81,26 @@ def Mostly_Cloudy(strip):
             Color_Array[i]=Color(0,0,255)
             strip.setPixelColor(i, Color_Array[i])
         run_once=1
-    for j in range(0, Cloud):
-        Color_Array[1]=Color(255,255,255)
-        for k in range(0, strip.numPixels()):
-            strip.setPixelColor(k, Color_Array[k])
-        strip.show()
-        #rotate(Color_Array, 1)
-        Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
-                 + Color_Array[0:len(Color_Array) - 1]) 
-        time.sleep(10/1000.0)
-    for l in range(0, Sky):
-        Color_Array[1]=Color(0,0,255)
-        for m in range(0, strip.numPixels()):
-            strip.setPixelColor(m, Color_Array[m])
-        strip.show()
-        rotate(Color_Array,1)
-        time.sleep(10/1000.0)
-        #strip.setPixelColor(strip.numPixels()-i, cr)
-        #for j in range(0, strip.numPixels()):
-         #   for k in range(Cloud):
-          #      strip.setPixelColor(j, Color(255,255,255))
-           # else:
-            #    strip.setPixelColor(0, Color(255,80,255))
-            #for l in range(strip.numPixels()):
-             #   x=strip.getPixelColor(strip.numPixels()-q)
-              #  strip.setPixelColor(strip.numPixels()-q+1, x)
-               # strip.show()
-    
+    while 1:
+        for j in range(0, Cloud):
+            Color_Array[1]=Color(255,255,255)
+            for k in range(0, strip.numPixels()):
+                strip.setPixelColor(k, Color_Array[k])
+            strip.show()
+            
+            Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
+                    + Color_Array[0:len(Color_Array) - 1]) 
+            time.sleep(10/1000.0)
+        for l in range(0, Sky):
+            Color_Array[1]=Color(0,0,255)
+            for m in range(0, strip.numPixels()):
+                strip.setPixelColor(m, Color_Array[m])
+            strip.show()
+            Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
+                    + Color_Array[0:len(Color_Array) - 1]) 
+            time.sleep(10/1000.0)
+
+        
 
     
     
