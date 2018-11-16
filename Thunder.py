@@ -73,7 +73,7 @@ def Mostly_Cloudy(strip):
     strip.setPixelColor(1, Color(255,255,255))
     
     for i in range(0, strip.numPixels()):
-        Color_Array[i]=[Color(0,0,255)]
+        Color_Array[i]=Color(0,0,255)
         strip.setPixelColor(i, Color_Array[i])
     for j in range(0, Cloud):
         Color_Array[1]=Color(255,255,255)
