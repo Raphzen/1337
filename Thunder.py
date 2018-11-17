@@ -54,6 +54,7 @@ def Static():
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(V0_val,V1_val,V2_val))
     strip.show()
+    
 
 def flash(strip, wait_ms=50):
     for i in range(0, strip.numPixels()):
