@@ -42,6 +42,7 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
+
 def Static():
     V0=Blynk(auth_token, pin="V0")
     V1=Blynk(auth_token, pin="V1")
