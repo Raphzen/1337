@@ -14,7 +14,9 @@ import pywapi
 import string
 import numpy
 import array
+from blynkapi import Blynk
 
+auth_token =""
 
 # LED strip configuration:
 LED_COUNT      = 144      # Number of LED pixels.
@@ -39,6 +41,12 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
+def Static():
+    Blynk.virtualRead(V0, V0)
+
+    for i in range(0, strip.numPixels()):
+        strip.setPixelColor(i,Color(V0,V1,V2))
+    strip.show()
 
 def flash(strip, wait_ms=50):
     for i in range(0, strip.numPixels()):
@@ -138,6 +146,9 @@ if __name__ == '__main__':
     try:
         start_time=0
         while True:
+
+            Static()
+
             current_time=time.time()
             if (current_time-start_time)>3:
                 start_time=time.time()
@@ -150,7 +161,7 @@ if __name__ == '__main__':
                 print("Aktuelles Wetter: " + Current_Conditions)
                 #print("Windgeschwindigkeit: " + beaufort)
 
-            Current_Conditions="Mostly Cloudy"
+            #Current_Conditions="Mostly Cloudy"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
