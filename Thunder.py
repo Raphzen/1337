@@ -146,9 +146,9 @@ if __name__ == '__main__':
                 temp_f=temperature * 9 / 5 + 32
                 humidity=int(weather_com_result['current_conditions']['humidity'])
                 Current_Conditions=weather_com_result['current_conditions']['text']
-                beaufort = int(weather_com_result['wind']['speed'])
+                #beaufort = int(weather_com_result['wind']['speed'])
                 print("Aktuelles Wetter: " + Current_Conditions)
-                print("Windgeschwindigkeit: " + beaufort)
+                #print("Windgeschwindigkeit: " + beaufort)
 
             Current_Conditions="Mostly Cloudy"
 
