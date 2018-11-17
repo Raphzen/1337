@@ -146,7 +146,9 @@ if __name__ == '__main__':
                 temp_f=temperature * 9 / 5 + 32
                 humidity=int(weather_com_result['current_conditions']['humidity'])
                 Current_Conditions=weather_com_result['current_conditions']['text']
+                beaufort = pywapi.wind_beaufort_scale(report['wind']['speed'])
                 print("Aktuelles Wetter: " + Current_Conditions)
+                print("Windgeschwindigkeit: " + beaufort)
 
             Current_Conditions="Mostly Cloudy"
 
