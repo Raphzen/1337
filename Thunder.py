@@ -14,7 +14,7 @@ import pywapi
 import string
 import numpy
 import array
-from blynkapi import Blynk
+from Blynk import *
 
 auth_token =""
 
@@ -48,6 +48,7 @@ def Static():
     V0_val=V0.get_val()
     V1_val=V1.get_val()
     V2_val=V2.get_val()
+
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(V0,V1,V2))
     strip.show()
