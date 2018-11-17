@@ -29,7 +29,7 @@ LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
-Current_Conditions=""
+Current_Conditions="e9923f06747e4e44a698f04324c909ec"
 
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
@@ -42,6 +42,7 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
+
 def Static():
     V0=Blynk(auth_token, pin="V0")
     V1=Blynk(auth_token, pin="V1")
@@ -51,7 +52,7 @@ def Static():
     V2_val=V2.get_val()
 
     for i in range(0, strip.numPixels()):
-        strip.setPixelColor(i,Color(V0,V1,V2))
+        strip.setPixelColor(i,Color(V0_val,V1_val,V2_val))
     strip.show()
 
 def flash(strip, wait_ms=50):
