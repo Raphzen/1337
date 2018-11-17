@@ -47,9 +47,9 @@ def Static():
     V0=Blynk(auth_token, pin="V0")
     V1=Blynk(auth_token, pin="V1")
     V2=Blynk(auth_token, pin="V2")
-    V0_val=V0.get_val()
-    V1_val=V1.get_val()
-    V2_val=V2.get_val()
+    V0_val=int(V0.get_val())
+    V1_val=int(V1.get_val())
+    V2_val=int(V2.get_val())
 
 
     for i in range(0, strip.numPixels()):
