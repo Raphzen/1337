@@ -42,8 +42,12 @@ def weather():
     Current_Conditions=weather_com_result['current_conditions']['text']
 
 def Static():
-    Blynk.virtualRead(V0, V0)
-
+    V0=Blynk(auth_token, pin="V0")
+    V1=Blynk(auth_token, pin="V1")
+    V2=Blynk(auth_token, pin="V2")
+    V0_val=V0.get_val()
+    V1_val=V1.get_val()
+    V2_val=V2.get_val()
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(V0,V1,V2))
     strip.show()
