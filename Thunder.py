@@ -16,6 +16,7 @@ import numpy
 import array
 from Blynk import *
 
+
 auth_token =""
 
 # LED strip configuration:
