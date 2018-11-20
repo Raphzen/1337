@@ -29,7 +29,7 @@ LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
-Current_Conditions="e9923f06747e4e44a698f04324c909ec"
+auth_token="e9923f06747e4e44a698f04324c909ec"
 
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
