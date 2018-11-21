@@ -184,7 +184,7 @@ if __name__ == '__main__':
                     thunder(strip)
                     
 
-            if Current_Conditions=="Heavy T-Storm / Windy":
+            if Current_Conditions=="Heavy T-Storm":
                 wait_ms=randint(2, 10)
                 print(wait_ms)
                 time.sleep(wait_ms)
