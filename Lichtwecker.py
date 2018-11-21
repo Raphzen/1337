@@ -63,6 +63,7 @@ if __name__ == '__main__':
         strip.setPixelColor(i, Color(0,0,0))
     strip.show()
 
+
     try:
         while True:
             current_day=datetime.datetime.today().weekday()
