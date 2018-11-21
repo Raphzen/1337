@@ -170,7 +170,7 @@ if __name__ == '__main__':
                 print("Aktuelles Wetter: " + Current_Conditions)
                 #print("Windgeschwindigkeit: " + beaufort)
 
-            Current_Conditions="Mostly Cloudy"
+            #Current_Conditions="Mostly Cloudy"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
