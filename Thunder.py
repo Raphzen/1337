@@ -156,7 +156,7 @@ if __name__ == '__main__':
         start_time=0
         while True:
 
-            Static()
+            #Static()
 
             current_time=time.time()
             if (current_time-start_time)>3:
@@ -170,7 +170,7 @@ if __name__ == '__main__':
                 print("Aktuelles Wetter: " + Current_Conditions)
                 #print("Windgeschwindigkeit: " + beaufort)
 
-            #Current_Conditions="Mostly Cloudy"
+            Current_Conditions="Mostly Cloudy"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
