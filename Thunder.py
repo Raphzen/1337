@@ -61,7 +61,7 @@ def Rain(strip):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,255))
         strip.show()
-        time.sleep(5)
+        time.sleep(5/1000)
         strip.setPixelColor(i,Color(0,0,0))
 
 def flash(strip, wait_ms=50):
