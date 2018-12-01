@@ -52,7 +52,7 @@ def Static():
     r=0
     @blynk.VIRTUAL_WRITE(0)
     def v0_write_handler(value):
-        r = v0_write_handler.value
+        r = v0.value
         print('Current slider value: {}'.format(value))
 
 
