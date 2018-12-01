@@ -50,8 +50,8 @@ def weather():
 r=0
 
 def Static():
-    def v0_read_handler(value):
-        r = v0_read_handler.format(value)
+    def v0_write_handler(value):
+        r = v0_write_handler.format(value)
         print('Current slider value: {}'.format(value))
     # V0=Blynk(auth_token, pin="V0")
     # V1=Blynk(auth_token, pin="V1")
