@@ -15,6 +15,8 @@ import string
 import numpy
 import array
 from Blynk import *
+import BlynkLib
+
 
 
 # LED strip configuration:
@@ -26,6 +28,11 @@ LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
 LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
+
+
+BLYNK_AUTH=e9923f06747e4e44a698f04324c909ec
+
+blynk=BlynkLib.Blynk(BLYNK_AUTH)
 
 auth_token="e9923f06747e4e44a698f04324c909ec"
 
@@ -42,14 +49,28 @@ def weather():
 
 
 def Static():
-    V0=Blynk(auth_token, pin="V0")
-    V1=Blynk(auth_token, pin="V1")
-    V2=Blynk(auth_token, pin="V2")
-    int Red=Blynk.virtualRead(V0)
+    @blynk.Virtual_Write(0)
+    RED=blynk.Virtual_Write(0).format(value)
     
     
+    # V0=Blynk(auth_token, pin="V0")
+    # V1=Blynk(auth_token, pin="V1")
+    # V2=Blynk(auth_token, pin="V2")
+    # BLYNK_WRITE(V0)
+    # {
+    #     int RED =param.asInt();
+    # }
+    # BLYNK_WRITE(V1)
+    # {
+    #     int GREEN =param.asInt();
+    # }
+    # BLYNK_WRITE(V2)
+    # {
+    #     int BLUE =param.asInt();
+    # }
+
     for i in range(0, strip.numPixels()):
-        strip.setPixelColor(i, Color(Red,0,0))
+        strip.setPixelColor(i, Color(RED,GREEN,BLUE))
     strip.show()
 
 Color_Array = []
