@@ -48,7 +48,7 @@ def Static():
     V0_val=V0.get_val()
     V1_val=int(V1.get_val())
     V2_val=int(V2.get_val())
-    
+
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(V0_val,V1_val,V2_val))
     strip.show()
@@ -168,10 +168,10 @@ if __name__ == '__main__':
         start_time=0
         while True:
 
-            #Static()
+            Static()
 
             current_time=time.time()
-            if (current_time-start_time)>3:
+            #if (current_time-start_time)>3:
                 start_time=time.time()
                 weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
                 temperature=int(weather_com_result['current_conditions']['temperature'])
