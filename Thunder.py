@@ -47,18 +47,13 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
-
+##HIER WEITERMACHEN
 def Static():
     r=0
     @blynk.VIRTUAL_WRITE(0)
     def v0_write_handler(value):
-        r = v0.value
+        r = v0.value ##WIE BEKOMME ICH DEN VALUE DES PINS
         print('Current slider value: {}'.format(value))
-
-
-    ## r WIRD NICHR ALS USED ERKANNT... AUERDEM GIBT BLYNK MIR EIN WARNING AUS FueR UNUSED PIN
-
-
 
     # V0=Blynk(auth_token, pin="V0")
     # V1=Blynk(auth_token, pin="V1")
