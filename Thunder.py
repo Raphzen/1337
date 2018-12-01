@@ -55,7 +55,7 @@ def weather():
 #    strip.show()
 
 Color_Array = []
-for i in range(0, strip.numPixels()):
+for i in range(0, LED_COUNT):
     Color_Array.append(i)
 
 def Reset(strip):
