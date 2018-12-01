@@ -45,13 +45,16 @@ def Static():
     V0=Blynk(auth_token, pin="V0")
     V1=Blynk(auth_token, pin="V1")
     V2=Blynk(auth_token, pin="V2")
-    BLYNK_WRITE(V0){
+    BLYNK_WRITE(V0)
+    {
         int RED=param.asInt()
     }
-    BLYNK_WRITE(V1){
+    BLYNK_WRITE(V1)
+    {
         int GREEN=param.asInt()
     }
-    BLYNK_WRITE(V2){
+    BLYNK_WRITE(V2)
+    {
         int BLUE=param.asInt()
     }
 
