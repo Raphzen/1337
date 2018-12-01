@@ -45,12 +45,12 @@ def Static():
     V0=Blynk(auth_token, pin="V0")
     V1=Blynk(auth_token, pin="V1")
     V2=Blynk(auth_token, pin="V2")
-    V0_val=V0.get_val()
-    V1_val=V1.get_val()
-    V2_val=V2.get_val()
+    RED=V0.get_val()
+    GREEN=V1.get_val()
+    BLUE=V2.get_val()
 
     for i in range(0, strip.numPixels()):
-        strip.setPixelColor(i,Color(V0_val,V1_val,V2_val))
+        strip.setPixelColor(i, Color(RED,GREEN,BLUE))
     strip.show()
 
 Color_Array = []
