@@ -47,7 +47,7 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
-int r=0
+r=0
 
 def Static():
     def v0_read_handler(value):
