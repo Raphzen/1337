@@ -50,7 +50,7 @@ def weather():
 
 def Static():
     def v3_write_handler(value):
-    print('Current slider value: {}'.format(value))
+        print('Current slider value: {}'.format(value))
     # V0=Blynk(auth_token, pin="V0")
     # V1=Blynk(auth_token, pin="V1")
     # V2=Blynk(auth_token, pin="V2")
@@ -71,7 +71,7 @@ def Static():
     #     strip.setPixelColor(i, Color(r,g,b))
     # strip.show()
     blynk.run()
-    
+
 
 Color_Array = []
 for i in range(0, LED_COUNT-1):
