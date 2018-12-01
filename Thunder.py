@@ -54,19 +54,19 @@ def Static():
     V2=Blynk(auth_token, pin="V2")
     BLYNK_WRITE(V0)
     {
-        int RED = param.asInt();
+        int r = param.asInt();
     }
     BLYNK_WRITE(V1)
     {
-        int GREEN = param.asInt();
+        int g = param.asInt();
     }
     BLYNK_WRITE(V2)
     {
-        int BLUE = param.asInt();
+        int b = param.asInt();
     }
 
     for i in range(0, strip.numPixels()):
-        strip.setPixelColor(i, Color(RED,GREEN,BLUE))
+        strip.setPixelColor(i, Color(r,g,b))
     strip.show()
 
 Color_Array = []
