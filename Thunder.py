@@ -68,9 +68,9 @@ def Static():
     #     int b = param.asInt();
     # }
 
-    # for i in range(0, strip.numPixels()):
-    #     strip.setPixelColor(i, Color(r,g,b))
-    # strip.show()
+    for i in range(0, strip.numPixels()):
+         strip.setPixelColor(i, Color(r,0,0))
+    strip.show()
     blynk.run()
 
 
