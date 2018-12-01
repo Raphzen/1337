@@ -68,19 +68,20 @@ def Reset(strip):
             strip.setPixelColor(i, Color_Array[i])
         run_once=1
 
-def Rain(strip):
-    Color_Array = []
-   # for i in range(0, strip.numPixels()):
-    #        Color_Array.append(i)
-    Rain_x=randint(40,50)
-    for l in range(0, Rain_x):
-        for m in range(0, strip.numPixels()):
-            strip.setPixelColor(m, Color_Array[m])
-        strip.show()
-        Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  #weiterschieben
-                + Color_Array[0:len(Color_Array) - 1]) 
-        time.sleep(25/1000.0)
-    Color_Array[1]=Color(13,80,250)
+# # def Rain(strip):
+# #     Color_Array = []
+# #    # for i in range(0, strip.numPixels()):
+# #     #        Color_Array.append(i)
+# #     Rain_x=randint(40,50)
+# #     for l in range(0, Rain_x):
+# #         for m in range(0, strip.numPixels()):
+# #             strip.setPixelColor(m, Color_Array[m])
+# #         strip.show()
+# #         Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  #weiterschieben
+# #                 + Color_Array[0:len(Color_Array) - 1]) 
+# #         time.sleep(25/1000.0)
+# #     Color_Array[1]=Color(13,80,250)
+
 
 def flash(strip, wait_ms=50):
     for i in range(0, strip.numPixels()):
@@ -182,7 +183,7 @@ if __name__ == '__main__':
                 print("Aktuelles Wetter: " + Current_Conditions)
                 #print("Windgeschwindigkeit: " + beaufort)
 
-            Current_Conditions="Rain"
+            #Current_Conditions="Rain"
 
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
