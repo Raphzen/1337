@@ -172,15 +172,15 @@ if __name__ == '__main__':
 
             current_time=time.time()
             #if (current_time-start_time)>3:
-                start_time=time.time()
-                weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
-                temperature=int(weather_com_result['current_conditions']['temperature'])
-                temp_f=temperature * 9 / 5 + 32
-                humidity=int(weather_com_result['current_conditions']['humidity'])
-                Current_Conditions=weather_com_result['current_conditions']['text']
-                #beaufort = int(weather_com_result['wind']['speed'])
-                print("Aktuelles Wetter: " + Current_Conditions)
-                #print("Windgeschwindigkeit: " + beaufort)
+                # # # start_time=time.time()
+                # # # weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
+                # # # temperature=int(weather_com_result['current_conditions']['temperature'])
+                # # # temp_f=temperature * 9 / 5 + 32
+                # # # humidity=int(weather_com_result['current_conditions']['humidity'])
+                # # # Current_Conditions=weather_com_result['current_conditions']['text']
+                # # # #beaufort = int(weather_com_result['wind']['speed'])
+                # # # print("Aktuelles Wetter: " + Current_Conditions)
+                # # # #print("Windgeschwindigkeit: " + beaufort)
 
             #Current_Conditions="Rain"
 
