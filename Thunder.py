@@ -47,9 +47,9 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
-r=0
 
 def Static():
+    r=0
     def v0_write_handler(value):
         r = v0_write_handler.format(value)
         print('Current slider value: {}'.format(value))
