@@ -56,16 +56,18 @@ def weather():
 #        strip.setPixelColor(i,Color(V0_val,V1_val,V2_val))
 #    strip.show()
 
-
-def Rain(strip):
+def Reset(strip):
     Color_Array = []
-    #run_once=0
+    run_once=0
     if run_once==0:
         for i in range(0, strip.numPixels()):
             Color_Array.append(i)
             Color_Array[i]=Color(0,0,0)
             strip.setPixelColor(i, Color_Array[i])
         run_once=1
+
+def Rain(strip):
+    Color_Array = []
     Rain_x=randint(40,50)
     for l in range(0, Rain_x):
         for m in range(0, strip.numPixels()):
@@ -190,7 +192,7 @@ if __name__ == '__main__':
                     thunder(strip)
 
             if Current_Conditions=="Rain":
-                run_once=0
+                Reset(strip)
                 Rain(strip)
 
 
