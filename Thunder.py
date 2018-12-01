@@ -59,6 +59,13 @@ def weather():
 
 def Rain(strip):
     Color_Array = []
+    run_once=0
+    if run_once==0:
+        for i in range(0, strip.numPixels()):
+            Color_Array.append(i)
+            Color_Array[i]=Color(0,0,0)
+            strip.setPixelColor(i, Color_Array[i])
+        run_once=1
     while 1:
         Sky=randint(10,20)
         for l in range(0, Sky):
