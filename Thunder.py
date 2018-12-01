@@ -17,8 +17,6 @@ import array
 from Blynk import *
 
 
-auth_token =""
-
 # LED strip configuration:
 LED_COUNT      = 144      # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
@@ -55,6 +53,10 @@ def weather():
 #    for i in range(0, strip.numPixels()):
 #        strip.setPixelColor(i,Color(V0_val,V1_val,V2_val))
 #    strip.show()
+
+Color_Array = []
+for i in range(0, strip.numPixels()):
+    Color_Array.append(i)
 
 def Reset(strip):
     Color_Array = []
