@@ -59,7 +59,7 @@ def weather():
 
 def Rain(strip):
     Color_Array = []
-    run_once=0
+    #run_once=0
     if run_once==0:
         for i in range(0, strip.numPixels()):
             Color_Array.append(i)
@@ -190,6 +190,7 @@ if __name__ == '__main__':
                     thunder(strip)
 
             if Current_Conditions=="Rain":
+                run_once=0
                 Rain(strip)
 
 
