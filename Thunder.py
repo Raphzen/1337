@@ -56,7 +56,7 @@ def Static():
         print('Current slider value: {}'.format(value))
 
 
-    ## r WIRD NICHR ALS USED ERKANNT... AU?ERDEM GIBT BLYNK MIR EIN WARNING AUS FÜR UNUSED PIN
+    ## r WIRD NICHR ALS USED ERKANNT... AUERDEM GIBT BLYNK MIR EIN WARNING AUS FueR UNUSED PIN
 
 
 
