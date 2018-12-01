@@ -67,9 +67,9 @@ def Reset(strip):
         run_once=1
 
 def Rain(strip):
-    Color_Array = []
-    for i in range(0, strip.numPixels()):
-            Color_Array.append(i)
+    Color_Array = [strip.numPixels()]
+   # for i in range(0, strip.numPixels()):
+    #        Color_Array.append(i)
     Rain_x=randint(40,50)
     for l in range(0, Rain_x):
         for m in range(0, strip.numPixels()):
