@@ -49,25 +49,21 @@ def weather():
 
 
 def Static():
-    @blynk.Virtual_Write(0)
-    RED=blynk.Virtual_Write(0).format(value)
-    
-    
-    # V0=Blynk(auth_token, pin="V0")
-    # V1=Blynk(auth_token, pin="V1")
-    # V2=Blynk(auth_token, pin="V2")
-    # BLYNK_WRITE(V0)
-    # {
-    #     int RED =param.asInt();
-    # }
-    # BLYNK_WRITE(V1)
-    # {
-    #     int GREEN =param.asInt();
-    # }
-    # BLYNK_WRITE(V2)
-    # {
-    #     int BLUE =param.asInt();
-    # }
+    V0=Blynk(auth_token, pin="V0")
+    V1=Blynk(auth_token, pin="V1")
+    V2=Blynk(auth_token, pin="V2")
+    BLYNK_WRITE(V0)
+    {
+        int RED = param.asInt();
+    }
+    BLYNK_WRITE(V1)
+    {
+        int GREEN = param.asInt();
+    }
+    BLYNK_WRITE(V2)
+    {
+        int BLUE = param.asInt();
+    }
 
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i, Color(RED,GREEN,BLUE))
