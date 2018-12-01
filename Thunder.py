@@ -57,6 +57,13 @@ def weather():
 #    strip.show()
 
 
+def Rain(strip):
+    for i in range(0, strip.numPixels()):
+        strip.setPixelColor(i,Color(0,0,255))
+        strip.show()
+        time.sleep(5)
+        strip.setPixelColor(i,Color(0,0,0))
+
 def flash(strip, wait_ms=50):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(125,125,125))
@@ -117,20 +124,7 @@ def Mostly_Cloudy(strip):
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(100/1000.0)
-
-        
-
-    
-    
-    #for i in range(-Cloud, strip.numPixels()):
-     #   for x in range(randint(2,10)):
-      #      for q in range(Cloud):
-       #         strip.setPixelColor(i+q, Color(255,255,255))
-        #    strip.show()
-         #   time.sleep(100/1000.0)
-          #  for i in range(-Cloud, strip.numPixels()):
-           #     strip.setPixelColor(i+q, Color(120,50,255))
-                    
+           
 def Partly_Cloudy(strip):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i+q, (255,255,255))
@@ -182,7 +176,10 @@ if __name__ == '__main__':
                     thunder(strip)
                 if randint(0,10) >8:
                     thunder(strip)
-                    
+
+            if Current_Conditions=="Rain":
+                Rain(strip)
+
 
             if Current_Conditions=="Heavy T-Storm":
                 wait_ms=randint(2, 10)
