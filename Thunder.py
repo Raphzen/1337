@@ -42,9 +42,9 @@ auth_token="e9923f06747e4e44a698f04324c909ec"
 Red = Blynk(auth_token, pin = "V0")
 Green = Blynk(auth_token, pin = "V1")
 Blue = Blynk(auth_token, pin = "V2")
-int r = Red.get_val()
-int g = Green.get_val()
-int b = Blue.get_val()
+r = Red.get_val()
+g = Green.get_val()
+b = Blue.get_val()
 
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
