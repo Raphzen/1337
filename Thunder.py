@@ -72,10 +72,9 @@ def Static(strip):
 
     #RGB=Color(r,0,0)
     @blynk.VIRTUAL_READ(2)
-    def my_read_handler():
-     #this widget will show some time in seconds..
-        blynk.virtual_read(2)
-
+    def my_write_handler():
+        r.value=2
+    print(r)
     #for i in range(0, strip.numPixels()):
     #     strip.setPixelColor(i,RGB)
     #strip.show()
