@@ -57,7 +57,7 @@ def Static():
     Red = Blynk(auth_token, pin = "V0")
     Green = Blynk(auth_token, pin = "V1")
     Blue = Blynk(auth_token, pin = "V2")
-    Color RGB = Color(Red,Green,Blue)
+    RGB = Color(Red,Green,Blue)
     #r = Red.get_val()
     #g = Green.get_val()
     #b = Blue.get_val()
