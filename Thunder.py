@@ -204,7 +204,7 @@ if __name__ == '__main__':
         start_time=0
         while True:
 
-            Static()
+            Static(strip)
 
             current_time=time.time()
             #if (current_time-start_time)>3:
