@@ -52,7 +52,6 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
-r=0
 ##HIER WEITERMACHEN
 def Static(strip):
     #Red = Blynk(auth_token, pin = "V0")
@@ -72,7 +71,7 @@ def Static(strip):
     
 
     #RGB=Color(r,0,0)
-    @blynk.VIRTUAL_READ(2)
+    @blynk.VIRTUAL_WRITE(2)
     def my_write_handler():
         r.value=2
     print(r)
