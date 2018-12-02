@@ -65,7 +65,8 @@ def Static(strip):
     def v0_write_handler(value):
         r = value ##WIE BEKOMME ICH DEN VALUE DES PINS
         print('Current slider value: {}'.format(value))
-    
+        RGB=Color(r,0,0)
+
     for i in range(0, strip.numPixels()):
          strip.setPixelColor(i,RGB)
     strip.show()
