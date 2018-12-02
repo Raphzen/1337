@@ -73,7 +73,7 @@ def Static(strip):
     #RGB=Color(r,0,0)
     @blynk.VIRTUAL_READ(2)
     def my_write_handler():
-        r.value=2
+        int r.value=2
     print(r)
     #for i in range(0, strip.numPixels()):
     #     strip.setPixelColor(i,RGB)
