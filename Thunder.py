@@ -62,10 +62,17 @@ def Static(strip):
     #g = Green.get_val()
     #b = Blue.get_val()
     @blynk.VIRTUAL_WRITE(0)
-    def v0_write_handler(value):
-        r = value ##WIE BEKOMME ICH DEN VALUE DES PINS
-        print('Current slider value: {}'.format(value))
-        RGB=Color(r,0,0)
+    #def v0_write_handler(value):
+    #    r = value ##WIE BEKOMME ICH DEN VALUE DES PINS
+    #    print('Current slider value: {}'.format(value))
+    #    RGB=Color(r,0,0)
+
+    r=blynk.VIRTUAL_READ(0)
+
+    #@blynk.VIRTUAL_READ(2)
+    #def my_read_handler():
+    # this widget will show some time in seconds..
+    #blynk.virtual_write(2, time.ticks_ms() // 1000)
 
     for i in range(0, strip.numPixels()):
          strip.setPixelColor(i,RGB)
