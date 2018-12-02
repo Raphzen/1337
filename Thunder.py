@@ -65,10 +65,12 @@ def Static(strip):
     #def v0_write_handler(value):
     #    r = value ##WIE BEKOMME ICH DEN VALUE DES PINS
     #    print('Current slider value: {}'.format(value))
-    #    RGB=Color(r,0,0)
+        
 
     r=blynk.VIRTUAL_READ(0)
+    
 
+    RGB=Color(r,0,0)
     #@blynk.VIRTUAL_READ(2)
     #def my_read_handler():
     # this widget will show some time in seconds..
