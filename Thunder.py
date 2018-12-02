@@ -53,7 +53,7 @@ def weather():
     Current_Conditions=weather_com_result['current_conditions']['text']
 
 ##HIER WEITERMACHEN
-def Static():
+def Static(strip):
     byte Red = Blynk(auth_token, pin = "V0")
     byte Green = Blynk(auth_token, pin = "V1")
     byte Blue = Blynk(auth_token, pin = "V2")
