@@ -57,11 +57,11 @@ def weather():
 
 ##HIER WEITERMACHEN
 def Static():
-    r=0
-    @blynk.VIRTUAL_WRITE(0)
-    def v0_write_handler(value):
-        r = v0.value ##WIE BEKOMME ICH DEN VALUE DES PINS
-        print('Current slider value: {}'.format(value))
+    # r=0
+    # @blynk.VIRTUAL_WRITE(0)
+    # def v0_write_handler(value):
+    #     r = v0.value ##WIE BEKOMME ICH DEN VALUE DES PINS
+    #     print('Current slider value: {}'.format(value))
 
     # V0=Blynk(auth_token, pin="V0")
     # V1=Blynk(auth_token, pin="V1")
