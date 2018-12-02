@@ -57,6 +57,7 @@ def Static():
     Red = Blynk(auth_token, pin = "V0")
     Green = Blynk(auth_token, pin = "V1")
     Blue = Blynk(auth_token, pin = "V2")
+    Color RGB = Color(Red,Green,Blue)
     #r = Red.get_val()
     #g = Green.get_val()
     #b = Blue.get_val()
@@ -83,7 +84,7 @@ def Static():
     # }
 
     for i in range(0, strip.numPixels()):
-         strip.setPixelColor(i, Color(Red,Green,Blue))
+         strip.setPixelColor(i,RGB)
     strip.show()
     blynk.run()
 
