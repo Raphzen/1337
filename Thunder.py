@@ -54,9 +54,9 @@ def weather():
 
 ##HIER WEITERMACHEN
 def Static():
-    Red = Blynk(auth_token, pin = "V0")
-    Green = Blynk(auth_token, pin = "V1")
-    Blue = Blynk(auth_token, pin = "V2")
+    byte Red = Blynk(auth_token, pin = "V0")
+    byte Green = Blynk(auth_token, pin = "V1")
+    byte Blue = Blynk(auth_token, pin = "V2")
     RGB = Color(Red,Green,Blue)
     #r = Red.get_val()
     #g = Green.get_val()
