@@ -54,35 +54,18 @@ def weather():
 
 ##HIER WEITERMACHEN
 def Static(strip):
-    Red = Blynk(auth_token, pin = "V0")
-    Green = Blynk(auth_token, pin = "V1")
-    Blue = Blynk(auth_token, pin = "V2")
-    RGB = Color(Red,Green,Blue)
+    #Red = Blynk(auth_token, pin = "V0")
+    #Green = Blynk(auth_token, pin = "V1")
+    #Blue = Blynk(auth_token, pin = "V2")
+    #RGB = Color(Red,Green,Blue)
     #r = Red.get_val()
     #g = Green.get_val()
     #b = Blue.get_val()
-    # r=0
-    # @blynk.VIRTUAL_WRITE(0)
-    # def v0_write_handler(value):
-    #     r = v0.value ##WIE BEKOMME ICH DEN VALUE DES PINS
-    #     print('Current slider value: {}'.format(value))
-
-    # V0=Blynk(auth_token, pin="V0")
-    # V1=Blynk(auth_token, pin="V1")
-    # V2=Blynk(auth_token, pin="V2")
-    # BLYNK_WRITE(V0)
-    # {
-    #     int r = param.asInt();
-    # }
-    # BLYNK_WRITE(V1)
-    # {
-    #     int g = param.asInt();
-    # }
-    # BLYNK_WRITE(V2)
-    # {
-    #     int b = param.asInt();
-    # }
-
+    @blynk.VIRTUAL_WRITE(0)
+    def v0_write_handler(value):
+        r = value ##WIE BEKOMME ICH DEN VALUE DES PINS
+        print('Current slider value: {}'.format(value))
+    
     for i in range(0, strip.numPixels()):
          strip.setPixelColor(i,RGB)
     strip.show()
@@ -103,19 +86,19 @@ def Reset(strip):
             strip.setPixelColor(i, Color_Array[i])
         run_once=1
 
-# # def Rain(strip):
-# #     Color_Array = []
-# #    # for i in range(0, strip.numPixels()):
-# #     #        Color_Array.append(i)
-# #     Rain_x=randint(40,50)
-# #     for l in range(0, Rain_x):
-# #         for m in range(0, strip.numPixels()):
-# #             strip.setPixelColor(m, Color_Array[m])
-# #         strip.show()
-# #         Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  #weiterschieben
-# #                 + Color_Array[0:len(Color_Array) - 1]) 
-# #         time.sleep(25/1000.0)
-# #     Color_Array[1]=Color(13,80,250)
+def Rain(strip):
+    Color_Array = []
+    # for i in range(0, strip.numPixels()):
+     #        Color_Array.append(i)
+    Rain_x=randint(40,50)
+    for l in range(0, Rain_x):
+        for m in range(0, strip.numPixels()):
+            strip.setPixelColor(m, Color_Array[m])
+        strip.show()
+        Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  #weiterschieben
+                 + Color_Array[0:len(Color_Array) - 1]) 
+        time.sleep(25/1000.0)
+    Color_Array[1]=Color(13,80,250)
 
 
 def flash(strip, wait_ms=50):
