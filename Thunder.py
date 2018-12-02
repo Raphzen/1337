@@ -67,7 +67,7 @@ def Static(strip):
     #    print('Current slider value: {}'.format(value))
         
 
-    r=blynk.VIRTUAL_READ(0)
+    r=blynk.VIRTUAL_WRITE(0)
     
 
     RGB=Color(r,0,0)
