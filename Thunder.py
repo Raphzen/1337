@@ -77,7 +77,8 @@ def Static(strip):
         #r.value=2
         #print(r)
     blynk.run()    
-    BLYNK_WRITE(V0){
+    BLYNK_WRITE(V0)
+    {
         int r = param.asInt()
     }
     for i in range(0, strip.numPixels()):
