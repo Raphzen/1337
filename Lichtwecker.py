@@ -14,6 +14,7 @@ from random import *
 import pywapi
 import string
 import numpy
+import gTTS
 
 
 # LED strip configuration:
@@ -26,6 +27,7 @@ LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 Wake_Up   = "04:50:00"
+TTS_Time = "05:05:00"
 
 
            
@@ -41,6 +43,12 @@ def Lichtwecker(strip):
         strip.show()
         time.sleep(2.35)      
         
+def weather():
+    weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
+    temperature=int(weather_com_result['current_conditions']['temperature'])
+    temp_f=temperature * 9 / 5 + 32
+    humidity=int(weather_com_result['current_conditions']['humidity'])
+    Current_Conditions=weather_com_result['current_conditions']['text']
     
 # Main program logic follows:
 if __name__ == '__main__':
@@ -68,11 +76,11 @@ if __name__ == '__main__':
         while True:
             current_day=datetime.datetime.today().weekday()
             current_time=str(time.strftime("%X"))
-            #print(current_time)
-            #print(current_day)
             if current_time == Wake_Up and current_day in (0,1,2,3,4):
-                #print("HI")
                 Lichtwecker(strip)
+            if current_time == TTS_Time:
+                tts = gTTS('Guten Morgen Raphael! Das Wetter heute wird' Current_Conditions '')
+                tts.save('Morning.mp3')
             if current_time == "05:30:00":
                 for i in range(0, strip.numPixels()):
                     strip.setPixelColor(i, Color(0,0,0))
