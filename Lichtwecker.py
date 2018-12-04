@@ -83,7 +83,7 @@ if __name__ == '__main__':
                 Lichtwecker(strip)
             if current_time == TTS_Time:
                 picotts = PicoTTS() 
-                wavs = picotts.synth_wav(‘Guten Morgen Rafael!’) 
+                wavs = picotts.synth_wav(‘Guten Morgen Rafael’) 
                 wav = wave.open(StringIO.StringIO(wavs)) 
                 print wav.getnchannels(), wav.getframerate(), wav.getnframes()
             if current_time == "05:30:00":
