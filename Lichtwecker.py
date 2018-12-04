@@ -30,7 +30,7 @@ LED_INVERT     = False  # True to invert the signal (when using NPN transistor l
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 Wake_Up   = "04:50:00"
 #TTS_Time = "05:05:00"
-TTS_Time = "21:17:00"
+#TTS_Time = "21:17:00"
 
            
 def Lichtwecker(strip):
@@ -80,11 +80,11 @@ if __name__ == '__main__':
             current_time=str(time.strftime("%X"))
             if current_time == Wake_Up and current_day in (0,1,2,3,4):
                 Lichtwecker(strip)
-            if current_time == TTS_Time:
-                picotts = PicoTTS() 
-                wavs = picotts.synth_wav("Guten Morgen Rafael!") 
-                wav = wave.open(StringIO.StringIO(wavs)) 
-                print wav.getnchannels(), wav.getframerate(), wav.getnframes()
+            #if current_time == TTS_Time:
+            #    picotts = PicoTTS() 
+            #    wavs = picotts.synth_wav("Guten Morgen Rafael!") 
+            #    wav = wave.open(StringIO.StringIO(wavs)) 
+            #    print wav.getnchannels(), wav.getframerate(), wav.getnframes()
             if current_time == "05:30:00":
                 for i in range(0, strip.numPixels()):
                     strip.setPixelColor(i, Color(0,0,0))
