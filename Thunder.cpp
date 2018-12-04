@@ -7,10 +7,12 @@
 int main() {
     Blynk();
 
-    GetWeather();
+    //GetWeather();
 
-    RunLED();
+    //RunLED();
 //Run LED
+
+}
 
 int Blynk(){
     Blynk.begin();
@@ -23,7 +25,7 @@ int Blynk(){
     }
 }
 
-}
+
 
 /*
 LED() {
