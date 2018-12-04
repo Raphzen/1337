@@ -79,7 +79,7 @@ def Static(strip):
     for i in range(0, strip.numPixels()):
          strip.setPixelColor(i,BLYNK_WRITE(0), BLYNK_WRITE(1), BLYNK_WRITE(2))
     strip.show()
-        blynk.run()
+    blynk.run()
 
 
 Color_Array = []
