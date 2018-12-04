@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main () {
+main() {
 
 printf("Hello World\n");
 //Run getweather
