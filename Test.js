@@ -7,7 +7,7 @@
 
 var Blynk = require('blynk');
 
-var AUTH = 'YOUR_AUTH_TOKEN';
+var AUTH = 'e9923f06747e4e44a698f04324c909ec';
 
 var blynk = new Blynk.Blynk(AUTH, options = {
   connector : new Blynk.EspruinoTCP()
