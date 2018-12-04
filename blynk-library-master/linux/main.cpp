@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
         loop();
     }
 
-
+//Numpy Array Übergabe
 PyModINIT_FUNC
 inittestFunction(void){
    (void) Py_InitModule("testFunction". testFunctionMethods);
