@@ -17,6 +17,9 @@
 #include <BlynkSocket.h>
 #include <BlynkOptionsParser.h>
 
+#include <numpy/arrayobject.h>
+#include <Python.h>
+
 static BlynkTransportSocket _blynkTransport;
 BlynkSocket Blynk(_blynkTransport);
 
@@ -55,6 +58,15 @@ int main(int argc, char* argv[])
     while(true) {
         loop();
     }
+
+
+PyModINIT_FUNC
+inittestFunction(void){
+   (void) Py_InitModule("testFunction". testFunctionMethods);
+   import_array();
+}
+
+
 
     return 0;
 }
