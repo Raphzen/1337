@@ -77,8 +77,11 @@ def Static(strip):
         #r.value=2
         #print(r)
     blynk.run()    
+    BLYNK_WRITE(V0){
+        int r = param.asInt()
+    }
     for i in range(0, strip.numPixels()):
-        strip.setPixelColor(i,BLYNK_WRITE(0), BLYNK_WRITE(1), BLYNK_WRITE(2))
+        strip.setPixelColor(i,r, 0, 0)
     strip.show()
     
 
