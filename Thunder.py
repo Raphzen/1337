@@ -30,17 +30,6 @@ LED_INVERT     = False  # True to invert the signal (when using NPN transistor l
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 
-BLYNK_AUTH="e9923f06747e4e44a698f04324c909ec"
-
-blynk=BlynkLib.Blynk(BLYNK_AUTH)
-
-
-
-auth_token="e9923f06747e4e44a698f04324c909ec"
-
-
-
-
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
             + array[0:len(array) - n]) 
@@ -52,37 +41,12 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
-r=0
+
 ##HIER WEITERMACHEN
 def Static(strip):
-    #Red = Blynk(auth_token, pin = "V0")
-    #Green = Blynk(auth_token, pin = "V1")
-    #Blue = Blynk(auth_token, pin = "V2")
-    #RGB = Color(Red,Green,Blue)
-    #r = Red.get_val()
-    #g = Green.get_val()
-    #b = Blue.get_val()
-    #@blynk.VIRTUAL_WRITE(0)
-    #def v0_write_handler(value):
-    #    r = value ##WIE BEKOMME ICH DEN VALUE DES PINS
-    #    print('Current slider value: {}'.format(value))
-        
 
-    #r=blynk.VIRTUAL_WRITE(0)
-    
-
-    #RGB=Color(r,0,0)
-    #@blynk.VIRTUAL_WRITE(2)
-    #def my_write_handler():
-        #r.value=2
-        #print(r)
-    blynk.run()    
-    BLYNK_WRITE(V0)
-    {
-        int r = param.asInt()
-    }
     for i in range(0, strip.numPixels()):
-        strip.setPixelColor(i,r, 0, 0)
+        strip.setPixelColor(i,0, 0, 0)
     strip.show()
     
 
@@ -201,9 +165,6 @@ if __name__ == '__main__':
     try:
         start_time=0
         while True:
-
-            Static(strip)
-
             current_time=time.time()
             #if (current_time-start_time)>3:
                 # # # start_time=time.time()
