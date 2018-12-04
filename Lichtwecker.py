@@ -15,6 +15,9 @@ import pywapi
 import string
 import numpy
 import gTTS
+import wave 
+import StringIO 
+from picotts import PicoTTS
 
 
 # LED strip configuration:
@@ -79,8 +82,10 @@ if __name__ == '__main__':
             if current_time == Wake_Up and current_day in (0,1,2,3,4):
                 Lichtwecker(strip)
             if current_time == TTS_Time:
-                tts = gTTS('Guten Morgen Raphael! Das Wetter heute wird' Current_Conditions '')
-                tts.save('Morning.mp3')
+                picotts = PicoTTS() 
+                wavs = picotts.synth_wav(‘Guten Morgen Rafael!’) 
+                wav = wave.open(StringIO.StringIO(wavs)) 
+                print wav.getnchannels(), wav.getframerate(), wav.getnframes()
             if current_time == "05:30:00":
                 for i in range(0, strip.numPixels()):
                     strip.setPixelColor(i, Color(0,0,0))
