@@ -1,9 +1,6 @@
 #define BLYNK_PRINT Serial
 
-
-#include <SPI.h>
-#include <Ethernet.h>
-#include <BlynkSimpleEthernet.h>
+#include <stdio.h>
 
 // You should get Auth Token in the Blynk App.
 // Go to the Project Settings (nut icon).
