@@ -42,7 +42,7 @@ def weather():
     Current_Conditions=weather_com_result['current_conditions']['text']
 
 
-##HIER WEITERMACHEN
+##HIER WEITERMACHEN:
 def Static(strip):
 
     for i in range(0, strip.numPixels()):
