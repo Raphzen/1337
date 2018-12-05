@@ -50,7 +50,7 @@ def Static(strip):
     strip.show()
     
 
-
+#
 Color_Array = []
 for i in range(0, LED_COUNT-1):
     Color_Array.append(i)
