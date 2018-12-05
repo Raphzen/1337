@@ -39,6 +39,7 @@ def weather():
     temperature=int(weather_com_result['current_conditions']['temperature'])
     temp_f=temperature * 9 / 5 + 32
     humidity=int(weather_com_result['current_conditions']['humidity'])
+    wind_speed=int(weather_com_result['current_conditions']['wind'])
     Current_Conditions=weather_com_result['current_conditions']['text']
 
 
