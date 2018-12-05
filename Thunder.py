@@ -40,6 +40,7 @@ def weather():
     temp_f=temperature * 9 / 5 + 32
     humidity=int(weather_com_result['current_conditions']['humidity'])
     wind_speed=int(weather_com_result['current_conditions']['wind'])
+
     Current_Conditions=weather_com_result['current_conditions']['text']
 
 
@@ -168,6 +169,8 @@ if __name__ == '__main__':
         while True:
             current_time=time.time()
             if (current_time-start_time)>3:
+                ###Durch weather() ersetzen 
+
                 start_time=time.time()
                 weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
                 temperature=int(weather_com_result['current_conditions']['temperature'])
