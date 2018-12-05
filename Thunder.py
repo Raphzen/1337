@@ -184,7 +184,7 @@ if __name__ == '__main__':
             #Current_Conditions="Rain"
             ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
                 ### kein erneuter Funktionsaufruf wegen Zuruecksetzen der LEDs
-            if Actual_Mode=!"T-Storm":    
+            if Actual_Mode<>"T-Storm":    
                 if Current_Conditions=="T-Storm":
                     Actual_Mode="T-Storm"
                     wait_ms=randint(2, 10)
@@ -257,7 +257,7 @@ if __name__ == '__main__':
                     thunder(strip)
                 if randint(0,10) >8:
                     thunder(strip)
-            if Actual_Mode=!"T-Storm":         
+            if Actual_Mode<>"T-Storm":         
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     Mostly_Cloudy(strip)
