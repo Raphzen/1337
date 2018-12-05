@@ -259,7 +259,7 @@ if __name__ == '__main__':
                     thunder(strip)
                 if randint(0,10) >8:
                     thunder(strip)
-            if Actual_Mode!="T-Storm":         
+            if Actual_Mode!="Mostly Cloudy":         
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     Mostly_Cloudy(strip)
