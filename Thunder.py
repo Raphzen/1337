@@ -113,23 +113,16 @@ def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
     if randint(0,100)>10:
         flash(strip)
            
-def Mostly_Cloudy(strip): ### while1 rausstreichen sonst im Loop gefangen
+def Mostly_Cloudy(strip):
     Color_Array = []
     def SetSky(strip):
         for i in range(0, strip.numPixels()):
             Color_Array.append(i)
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
-    
-    # run_once=0
-    # if run_once==0:
-    #     for i in range(0, strip.numPixels()):
-    #         Color_Array.append(i)
-    #         Color_Array[i]=Color(13,80,250)
-    #         strip.setPixelColor(i, Color_Array[i])
-    #     run_once=1
-    #while 1:
+
     SetSky(strip)
+
     Cloud=randint(15,30)
     Sky=randint(10,20)
     for j in range(0, Cloud):
@@ -175,7 +168,7 @@ if __name__ == '__main__':
         start_time=0
         while True:
             current_time=time.time()
-            if (current_time-start_time)>3:
+            if (current_time-start_time)>300:
                 ###Durch weather() ersetzen 
 
                 start_time=time.time()
@@ -189,7 +182,8 @@ if __name__ == '__main__':
                 #print("Windgeschwindigkeit: " + beaufort)
 
             #Current_Conditions="Rain"
-
+            ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
+                ### kein erneuter Funktionsaufruf wegen Zurücksetzen der LEDs
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
                 print(wait_ms)
