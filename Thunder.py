@@ -14,8 +14,8 @@ import pywapi
 import string
 import numpy
 import array
-from Blynk import *
-import BlynkLib
+#from Blynk import *
+#import BlynkLib
 
 
 
@@ -51,9 +51,9 @@ def Static(strip):
     
 
 #
-Color_Array = []
-for i in range(0, LED_COUNT-1):
-    Color_Array.append(i)
+#Color_Array = []
+#for i in range(0, LED_COUNT-1):
+#    Color_Array.append(i)
 
 def Reset(strip):
     Color_Array = []
