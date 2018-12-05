@@ -29,6 +29,7 @@ LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
+Actual_Mode="Initialize"
 
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
@@ -180,6 +181,7 @@ if __name__ == '__main__':
                 #beaufort = int(weather_com_result['wind']['speed'])
                 print("Aktuelles Wetter: " + Current_Conditions)
                 #print("Windgeschwindigkeit: " + beaufort)
+
 
             #Current_Conditions="Rain"
             ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
