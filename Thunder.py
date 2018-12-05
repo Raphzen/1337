@@ -129,7 +129,7 @@ def Mostly_Cloudy(strip): ### while1 rausstreichen sonst im Loop gefangen
     #         strip.setPixelColor(i, Color_Array[i])
     #     run_once=1
     #while 1:
-    SetSky()
+    SetSky(strip)
     Cloud=randint(15,30)
     Sky=randint(10,20)
     for j in range(0, Cloud):
