@@ -183,7 +183,7 @@ if __name__ == '__main__':
 
             #Current_Conditions="Rain"
             ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
-                ### kein erneuter Funktionsaufruf wegen Zurücksetzen der LEDs
+                ### kein erneuter Funktionsaufruf wegen Zuruecksetzen der LEDs
             if Current_Conditions=="T-Storm":
                 wait_ms=randint(2, 10)
                 print(wait_ms)
