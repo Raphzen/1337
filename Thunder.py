@@ -57,12 +57,12 @@ class controller(Resource):
         if (status == "On" ):
             On(strip)
             return "superOn" ,200
-        return "scheisseOn" , 404
-
         if (status == "Off" ):
             Off(strip)
             return "superOff" ,200
         return "scheisseOff" , 404
+
+        
 
 api.add_resource(controller, "/TurnOn/<string:status>")
 app.run(debug=True)
