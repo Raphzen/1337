@@ -1,18 +1,12 @@
 #include <stdio.h>
 
 #define BLYNK_PRINT Serial
-//#include <SPI.h>
-//#include <Ethernet.h>
+#include <SPI.h>
+#include <Ethernet.h>
 #include <BlynkSimpleEthernet.h>
 
 int main() {
     Blynk();
-
-    //GetWeather();
-
-    //RunLED();
-//Run LED
-
 }
 
 int Blynk(){
@@ -25,13 +19,3 @@ int Blynk(){
         printf(r"\n");
     }
 }
-
-
-
-/*
-LED() {
-    //if
-    //if
-    //if
-}
-*/
