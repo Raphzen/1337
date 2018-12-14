@@ -57,7 +57,7 @@ LED_BRIGHTNESS = 50     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
-global strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
+strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
 
 Actual_Mode="Initialize"
 
@@ -81,12 +81,12 @@ def Static(strip):
         strip.setPixelColor(i,0, 0, 0)
     strip.show()
     
-def global Off(strip):
+def Off(strip):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(Color(0,0,0))
     strip.show()
 
-def global On(strip):
+def On(strip):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(Color(255,255,255))
     strip.show()
