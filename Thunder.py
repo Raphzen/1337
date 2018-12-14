@@ -260,7 +260,7 @@ if __name__ == '__main__':
                 if randint(0,10) >8:
                     thunder(strip)
             if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
-                                                ### schleife wieder einführen und bei neuem Actual Mode einen Break des Loops       
+                                                ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     Mostly_Cloudy(strip)
