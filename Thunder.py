@@ -188,117 +188,117 @@ class controller(Resource):
         if not args.clear:
             print('Use "-c" argument to clear LEDs on exit')
 
-        try:
-            start_time=0
-            while True:
-                current_time=time.time()
-                if (current_time-start_time)>300:
-                    ###Durch weather() ersetzen 
+        #try:
+        #     start_time=0
+        #     while True:
+        #         current_time=time.time()
+        #         if (current_time-start_time)>300:
+        #             ###Durch weather() ersetzen 
 
-                    start_time=time.time()
-                    weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
-                    temperature=int(weather_com_result['current_conditions']['temperature'])
-                    temp_f=temperature * 9 / 5 + 32
-                    humidity=int(weather_com_result['current_conditions']['humidity'])
-                    Current_Conditions=weather_com_result['current_conditions']['text']
-                    #beaufort = int(weather_com_result['wind']['speed'])
-                    print("Aktuelles Wetter: " + Current_Conditions)
-                    #print("Windgeschwindigkeit: " + beaufort)
-
-
-                #Current_Conditions="Rain"
-                ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
-                    ### kein erneuter Funktionsaufruf wegen Zuruecksetzen der LEDs
-                if Actual_Mode!="T-Storm":    
-                    if Current_Conditions=="T-Storm":
-                        Actual_Mode="T-Storm"
-                        wait_ms=randint(2, 10)
-                        print(wait_ms)
-                        time.sleep(wait_ms)
-                        print( "Thunder animations!")
-                        thunder(strip)
-                        if randint(0,10) >8:
-                            thunder(strip)
-                        if randint(0,10) >8:
-                            thunder(strip)
-
-                if Current_Conditions=="Rain":
-                    Reset(strip)
-                    Rain(strip)
+        #             start_time=time.time()
+        #             weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
+        #             temperature=int(weather_com_result['current_conditions']['temperature'])
+        #             temp_f=temperature * 9 / 5 + 32
+        #             humidity=int(weather_com_result['current_conditions']['humidity'])
+        #             Current_Conditions=weather_com_result['current_conditions']['text']
+        #             #beaufort = int(weather_com_result['wind']['speed'])
+        #             print("Aktuelles Wetter: " + Current_Conditions)
+        #             #print("Windgeschwindigkeit: " + beaufort)
 
 
-                if Current_Conditions=="Heavy T-Storm":
-                    wait_ms=randint(2, 10)
-                    print(wait_ms)
-                    time.sleep(wait_ms)
-                    print( "Thunder animations!")
-                    thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
+        #         #Current_Conditions="Rain"
+        #         ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
+        #             ### kein erneuter Funktionsaufruf wegen Zuruecksetzen der LEDs
+        #         if Actual_Mode!="T-Storm":    
+        #             if Current_Conditions=="T-Storm":
+        #                 Actual_Mode="T-Storm"
+        #                 wait_ms=randint(2, 10)
+        #                 print(wait_ms)
+        #                 time.sleep(wait_ms)
+        #                 print( "Thunder animations!")
+        #                 thunder(strip)
+        #                 if randint(0,10) >8:
+        #                     thunder(strip)
+        #                 if randint(0,10) >8:
+        #                     thunder(strip)
+
+        #         if Current_Conditions=="Rain":
+        #             Reset(strip)
+        #             Rain(strip)
 
 
-                if Current_Conditions=="Scattered Thunderstorms":
-                    wait_ms=randint(2, 10)
-                    print(wait_ms)
-                    time.sleep(wait_ms)
-                    print( "Thunder animations!")
-                    thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
+        #         if Current_Conditions=="Heavy T-Storm":
+        #             wait_ms=randint(2, 10)
+        #             print(wait_ms)
+        #             time.sleep(wait_ms)
+        #             print( "Thunder animations!")
+        #             thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
+
+
+        #         if Current_Conditions=="Scattered Thunderstorms":
+        #             wait_ms=randint(2, 10)
+        #             print(wait_ms)
+        #             time.sleep(wait_ms)
+        #             print( "Thunder animations!")
+        #             thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
                         
-                if Current_Conditions=="Light Rain with Thunder":
-                    wait_ms=randint(2, 10)
-                    print(wait_ms)
-                    time.sleep(wait_ms)
-                    print( "Thunder animations!")
-                    thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)       
+        #         if Current_Conditions=="Light Rain with Thunder":
+        #             wait_ms=randint(2, 10)
+        #             print(wait_ms)
+        #             time.sleep(wait_ms)
+        #             print( "Thunder animations!")
+        #             thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)       
                         
-                if Current_Conditions=="Thunder":
-                    wait_ms=randint(2, 10)
-                    print(wait_ms)
-                    time.sleep(wait_ms)
-                    print( "Thunder animations!")
-                    thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)    
+        #         if Current_Conditions=="Thunder":
+        #             wait_ms=randint(2, 10)
+        #             print(wait_ms)
+        #             time.sleep(wait_ms)
+        #             print( "Thunder animations!")
+        #             thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)    
                 
-                if Current_Conditions=="Thunder in the Vicinity":
-                    wait_ms=randint(2, 10)
-                    print(wait_ms)
-                    time.sleep(wait_ms)
-                    print( "Thunder animations!")
-                    thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
-                    if randint(0,10) >8:
-                        thunder(strip)
-                # if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
-                #                                     ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
-                #     if Current_Conditions=="Mostly Cloudy":
-                #         Actual_Mode="Mostly Cloudy"
-                #         Mostly_Cloudy(strip)
+        #         if Current_Conditions=="Thunder in the Vicinity":
+        #             wait_ms=randint(2, 10)
+        #             print(wait_ms)
+        #             time.sleep(wait_ms)
+        #             print( "Thunder animations!")
+        #             thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
+        #             if randint(0,10) >8:
+        #                 thunder(strip)
+        #         # if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
+        #         #                                     ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
+        #         #     if Current_Conditions=="Mostly Cloudy":
+        #         #         Actual_Mode="Mostly Cloudy"
+        #         #         Mostly_Cloudy(strip)
                         
-                if Current_Conditions=="Partly Cloudy":
-                    Partly_Cloudy(strip)
+        #         if Current_Conditions=="Partly Cloudy":
+        #             Partly_Cloudy(strip)
                     
-                current_time=time.time()
+        #         current_time=time.time()
 
 
-        except KeyboardInterrupt:
-            if args.clear:
-                for i in range(0, strip.numPixels()):
-                    strip.setPixelColor(i, Color(0,0,0))
-                strip.show()
+        # except KeyboardInterrupt:
+        #     if args.clear:
+        #         for i in range(0, strip.numPixels()):
+        #             strip.setPixelColor(i, Color(0,0,0))
+        #         strip.show()
 
 
     def get(self,status):
