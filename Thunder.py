@@ -17,6 +17,8 @@ import array
 #from Blynk import *
 #import BlynkLib
 #import main
+import threading
+
 
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
@@ -36,7 +38,7 @@ class controller(Resource):
         return "scheisseOff" , 404
 
 api.add_resource(controller, "/TurnOn/<string:status>")
-app.run(debug=True,host='192.168.178.55', port='50')
+app.run(debug=True)
 
 
 # LED strip configuration:
