@@ -17,6 +17,18 @@ import array
 #from Blynk import *
 #import BlynkLib
 #import main
+from flask import(
+    Flask,
+    render_template
+)
+
+app = Flask(__name__, template_folder="templates")
+
+@app.route('/')
+def home():
+        return render_template('home.html')
+
+
 
 
 # LED strip configuration:
@@ -155,6 +167,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
     args = parser.parse_args()
+
+    app.run(debug=True) #api
 
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
