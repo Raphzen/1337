@@ -30,7 +30,7 @@ api = Api(app)
 
 @app.route('/State/<string:Value>')
 def State(Value):
-    print("Fick Dich!!!!!")
+     return "Fick Dich!!!!!"
 
 # class controller(Resource):
 #     def get(self,status):
