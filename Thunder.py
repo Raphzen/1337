@@ -188,9 +188,21 @@ class controller(Resource):
         if not args.clear:
             print('Use "-c" argument to clear LEDs on exit')
 
-        #try:
+        try:
         #     start_time=0
-        #     while True:
+             while True:
+
+                if (status == "On" ):
+                    On(strip)
+                    return "superOn" ,200
+                return "scheisseOn" , 404
+
+                if (status == "Off" ):
+                    Off(strip)
+                    return "superOff" ,200
+                return "scheisseOff" , 404
+
+
         #         current_time=time.time()
         #         if (current_time-start_time)>300:
         #             ###Durch weather() ersetzen 
@@ -301,16 +313,16 @@ class controller(Resource):
         #         strip.show()
 
 
-    def get(self,status):
-        if (status == "On" ):
-            On(strip)
-            return "superOn" ,200
-        return "scheisseOn" , 404
+    # def get(self,status):
+    #     if (status == "On" ):
+    #         On(strip)
+    #         return "superOn" ,200
+    #     return "scheisseOn" , 404
 
-        if (status == "Off" ):
-            Off(strip)
-            return "superOff" ,200
-        return "scheisseOff" , 404
+    #     if (status == "Off" ):
+    #         Off(strip)
+    #         return "superOff" ,200
+    #     return "scheisseOff" , 404
 
 api.add_resource(controller, "/TurnOn/<string:status>")
 app.run(debug=True)
