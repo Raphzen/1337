@@ -29,8 +29,13 @@ api = Api(app)
 
 
 @app.route('/State/<string:Value>')
+
 def State(Value):
+    global On
+    global strip
+    On(strip)
      return "Fick Dich!!!!!"
+    
 
 # class controller(Resource):
 #     def get(self,status):
