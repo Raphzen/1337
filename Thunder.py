@@ -17,18 +17,26 @@ import array
 #from Blynk import *
 #import BlynkLib
 #import main
-from flask import(
-    Flask,
-    render_template
-)
 
-app = Flask(__name__, template_folder="templates")
+from flask import Flask
+from flask_restful import Api, Resource , reqparse
 
-@app.route('/')
-def home():
-        return render_template('home.html')
+# API FLASK
+app = Flask(__name__)
+api = Api(app)
 
+class controller(Resource):
+    def get(self,status):
+        if (status == "On" ):
+            return "superOn" ,200
+        return "scheisseOn" , 404
 
+        if (status == "Off" ):
+            return "superOff" ,200
+        return "scheisseOff" , 404
+
+api.add_resource(controller, "/TurnOn/<string:status>")
+app.run(debug=True)
 
 
 # LED strip configuration:
@@ -162,11 +170,6 @@ def Partly_Cloudy(strip):
     strip.show()
     
 
-def sdigjfdg(x):
-    return 2*x
-
-print(sdigjfdg(10))
-
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
@@ -174,7 +177,7 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
     args = parser.parse_args()
 
-    app.run(debug=True) #api
+
 
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
