@@ -38,7 +38,7 @@ class controller(Resource):
         return "scheisseOff" , 404
 
 api.add_resource(controller, "/TurnOn/<string:status>")
-app.run(host='0.0.0.0')
+app.run(debug=True)
 
 
 # LED strip configuration:
@@ -69,7 +69,6 @@ def weather():
 
 ##HIER WEITERMACHEN:
 def Static(strip):
-
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,0, 0, 0)
     strip.show()
