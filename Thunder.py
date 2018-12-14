@@ -201,20 +201,12 @@ def State(value):
     global strip
     if (value=="Off"):
         Off(strip)
-        # for i in range(1, strip.numPixels()):
-        #     strip.setPixelColor(i,Color(0,0,0))
-        # strip.show()
         return "LED OFF", 200
-
-
-
     if (value=="On"):
-        for i in range(1, strip.numPixels()):
-            strip.setPixelColor(i,Color(255,255,255))
-        strip.show()
-
-
-    return "Fick Dich!!!!!", 404
+        On(strip)
+        return "LED ON", 200
+    
+    return "", 404
 app.run(debug=True)
 
 
