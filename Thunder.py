@@ -43,17 +43,19 @@ app = Flask(__name__)
 api = Api(app)
 
 
-@app.route('/State/<string:Value>')
+@app.route('/State/<string:value>')
 
 
 
-def State(Value):
+def State(value):
     global strip
-    for i in range(1, strip.numPixels()):
-        strip.setPixelColor(i,Color(0,0,0))
-        print("HI!")
-    strip.show()
-    return "Fick Dich!!!!!"
+    if (value=="Off")
+        for i in range(1, strip.numPixels()):
+            strip.setPixelColor(i,Color(0,0,0))
+            print("HI!")
+        strip.show()
+        return "LED OFF", 200
+    return "Fick Dich!!!!!", 404
     
 
 # class controller(Resource):
