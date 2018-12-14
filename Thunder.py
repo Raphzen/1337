@@ -28,9 +28,10 @@ app = Flask(__name__)
 api = Api(app)
 
 class controller(Resource):
+    
     def get(self,status):
         if (status == "On" ):
-            On(strip)
+            self.On(strip)
             return "superOn" ,200
         return "scheisseOn" , 404
 
