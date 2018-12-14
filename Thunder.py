@@ -50,7 +50,7 @@ class controller(Resource):
     global On
     def On(strip):
         for i in range(0, strip.numPixels()):
-            strip.setPixelColor(Color(255,255,255))
+            strip.setPixelColor(i,Color(255,255,255))
         strip.show()
 
     def get(self,status):
