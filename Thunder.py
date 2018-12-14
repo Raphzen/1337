@@ -48,8 +48,9 @@ api = Api(app)
 
 def State(Value):
     global strip
-    for i in range(0, strip.numPixels()):
+    for i in range(1, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
+        print("HI!")
     strip.show()
     return "Fick Dich!!!!!"
     
