@@ -53,6 +53,7 @@ class controller(Resource):
             strip.setPixelColor(i,Color(255,255,255))
         strip.show()
 
+    Off(strip)
     def get(self,status):
         if (status == "On" ):
             On(strip)
@@ -62,7 +63,6 @@ class controller(Resource):
             return "superOff" ,200
         return "scheisseOff" , 404
 
-        
 
 api.add_resource(controller, "/TurnOn/<string:status>")
 app.run(debug=True)
