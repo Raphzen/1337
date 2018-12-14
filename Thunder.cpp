@@ -2,8 +2,8 @@
 
 #define BLYNK_PRINT Serial
 //#include <SPI.h>
-#include <Ethernet.h>
-#include <BlynkSimpleEthernet.h>
+//#include <Ethernet.h>
+//#include <BlynkSimpleEthernet.h>
 
 int main() {
     Blynk();
