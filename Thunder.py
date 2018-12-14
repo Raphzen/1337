@@ -28,9 +28,10 @@ app = Flask(__name__)
 api = Api(app)
 
 class controller(Resource):
-    global On
+    import Thunder
+
+
     def get(self,status):
-        
         if (status == "On" ):
             global On(strip)
             return "superOn" ,200
