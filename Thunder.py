@@ -38,7 +38,7 @@ class controller(Resource):
         return "scheisseOff" , 404
 
 api.add_resource(controller, "/TurnOn/<string:status>")
-app.run(debug=True)
+app.run(host='0.0.0.0')
 
 
 # LED strip configuration:
