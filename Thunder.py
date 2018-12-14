@@ -47,18 +47,7 @@ api = Api(app)
 
 
 
-def State(value):
-    global strip
-    if (value=="Off"):
-        for i in range(1, strip.numPixels()):
-            strip.setPixelColor(i,Color(0,0,0))
-        strip.show()
-        return "LED OFF", 200
-    if (value=="On"):
-        for i in range(1, strip.numPixels()):
-            strip.setPixelColor(i,Color(255,255,255))
-        strip.show()
-    return "Fick Dich!!!!!", 404
+
     
 
 # class controller(Resource):
@@ -207,6 +196,25 @@ def Partly_Cloudy(strip):
         strip.setPixelColor(i+q, (255,255,255))
     strip.show()
     
+
+def State(value):
+    global strip
+    if (value=="Off"):
+        Off(strip)
+        # for i in range(1, strip.numPixels()):
+        #     strip.setPixelColor(i,Color(0,0,0))
+        # strip.show()
+        return "LED OFF", 200
+
+
+
+    if (value=="On"):
+        for i in range(1, strip.numPixels()):
+            strip.setPixelColor(i,Color(255,255,255))
+        strip.show()
+
+
+    return "Fick Dich!!!!!", 404
 
 # Main program logic follows:
 if __name__ == '__main__':
