@@ -207,7 +207,17 @@ def State(value):
         return "LED ON", 200
     
     return "", 404
+
+@app.route('/RGB/<string:Color>')
+def RGB(rgb)
+    #string "255,100,199" komma trennen und jeden wert zu r g und b zuweisen
+    
+
+
+
 app.run(debug=True)
+
+
 
 
 # Main program logic follows:

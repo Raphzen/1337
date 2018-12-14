@@ -4,6 +4,7 @@
 //#include <SPI.h>
 #include <Ethernet.h>
 #include <BlynkSimpleEthernet.h>
+#include <Windows.h>
 
 int main() {
     Blynk();
