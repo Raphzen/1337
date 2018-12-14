@@ -16,7 +16,7 @@ import numpy
 import array
 #from Blynk import *
 #import BlynkLib
-import main
+#import main
 
 
 # LED strip configuration:
