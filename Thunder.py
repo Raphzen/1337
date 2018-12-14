@@ -30,6 +30,9 @@ api = Api(app)
 class controller(Resource):
     
     def get(self,status):
+        global strip
+        global On
+        global Off
         if (status == "On" ):
             self.On(strip)
             return "superOn" ,200
@@ -54,7 +57,7 @@ LED_BRIGHTNESS = 50     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
-strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
+global strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
 
 Actual_Mode="Initialize"
 
@@ -78,12 +81,12 @@ def Static(strip):
         strip.setPixelColor(i,0, 0, 0)
     strip.show()
     
-def Off(strip):
+def global Off(strip):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(Color(0,0,0))
     strip.show()
 
-def On(strip):
+def global On(strip):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(Color(255,255,255))
     strip.show()
