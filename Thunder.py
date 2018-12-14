@@ -17,7 +17,7 @@ import array
 #from Blynk import *
 #import BlynkLib
 #import main
-import threading
+#import threading
 
 
 from flask import Flask
