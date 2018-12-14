@@ -28,11 +28,11 @@ app = Flask(__name__)
 api = Api(app)
 
 class controller(Resource):
-    
+    global strip
+    global On
+    global Off
     def get(self,status):
-        global strip
-        global On
-        global Off
+        
         if (status == "On" ):
             self.On(strip)
             return "superOn" ,200
