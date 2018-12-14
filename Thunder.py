@@ -32,7 +32,7 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 global strip
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
-
+strip.begin()
 
 
 from flask import Flask
@@ -49,10 +49,10 @@ api = Api(app)
 
 def State(Value):
     global strip
-    # for i in range(1, strip.numPixels()):
-    #     strip.setPixelColor(i,Color(0,0,0))
-    #     print("HI!")
-    # strip.show()
+    for i in range(1, strip.numPixels()):
+        strip.setPixelColor(i,Color(0,0,0))
+        print("HI!")
+    strip.show()
     return "Fick Dich!!!!!"
     
 
