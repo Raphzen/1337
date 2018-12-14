@@ -43,7 +43,7 @@ app = Flask(__name__)
 api = Api(app)
 
 
-@app.route('/State/<string:value>')
+
 
 
 
@@ -196,7 +196,7 @@ def Partly_Cloudy(strip):
         strip.setPixelColor(i+q, (255,255,255))
     strip.show()
     
-
+@app.route('/State/<string:value>')
 def State(value):
     global strip
     if (value=="Off"):
