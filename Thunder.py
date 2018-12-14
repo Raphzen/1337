@@ -161,6 +161,12 @@ def Partly_Cloudy(strip):
         strip.setPixelColor(i+q, (255,255,255))
     strip.show()
     
+
+def sdigjfdg(x):
+    return 2*x
+
+print(sdigjfdg(10))
+
 # Main program logic follows:
 if __name__ == '__main__':
     # Process arguments
