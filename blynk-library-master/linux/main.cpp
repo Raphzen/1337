@@ -8,6 +8,9 @@
  */
 
 //#define BLYNK_DEBUG
+#include <Python.h>
+#include <boost/python.hpp>
+#include <string>
 #define BLYNK_PRINT stdout
 #ifdef RASPBERRY
   #include <BlynkApiWiringPi.h>
@@ -18,7 +21,7 @@
 #include <BlynkOptionsParser.h>
 
 #include <numpy/arrayobject.h>
-#include <Python.h>
+
 
 static BlynkTransportSocket _blynkTransport;
 BlynkSocket Blynk(_blynkTransport);
@@ -33,6 +36,16 @@ BlynkTimer tmr;
 BLYNK_WRITE(V1)
 {
     printf("Got a value: %s\n", param[0].asStr());
+
+    return g;//for Green
+}
+// eingefügt
+BOOST_PYTHON_MODULE(zoo) {
+    // An established convention for using boost.python.
+    using namespace boost::python;
+
+    // Expose the function hello().
+    def("hello", hello);
 }
 
 void setup()
@@ -58,15 +71,6 @@ int main(int argc, char* argv[])
     while(true) {
         loop();
     }
-
-//Numpy Array Übergabe
-PyModINIT_FUNC
-inittestFunction(void){
-   (void) Py_InitModule("testFunction". testFunctionMethods);
-   import_array();
-}
-
-
 
     return 0;
 }
