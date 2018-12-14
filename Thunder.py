@@ -62,7 +62,7 @@ api = Api(app)
 
 
 # # api.add_resource(controller, "/TurnOn/<string:status>")
-app.run(debug=True)
+
 
 
 Actual_Mode="Initialize"
@@ -215,6 +215,8 @@ def State(value):
 
 
     return "Fick Dich!!!!!", 404
+app.run(debug=True)
+
 
 # Main program logic follows:
 if __name__ == '__main__':
