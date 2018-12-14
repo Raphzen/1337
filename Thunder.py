@@ -49,7 +49,7 @@ api = Api(app)
 
 def State(value):
     global strip
-    if (value=="Off")
+    if (value=="Off"):
         for i in range(1, strip.numPixels()):
             strip.setPixelColor(i,Color(0,0,0))
             print("HI!")
