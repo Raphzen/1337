@@ -34,7 +34,7 @@ def State(Value):
     global On
     global strip
     On(strip)
-     return "Fick Dich!!!!!"
+    return "Fick Dich!!!!!"
     
 
 # class controller(Resource):
