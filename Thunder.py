@@ -30,10 +30,12 @@ api = Api(app)
 class controller(Resource):
     def get(self,status):
         if (status == "On" ):
+            On(strip)
             return "superOn" ,200
         return "scheisseOn" , 404
 
         if (status == "Off" ):
+            Off(strip)
             return "superOff" ,200
         return "scheisseOff" , 404
 
@@ -73,11 +75,21 @@ def Static(strip):
         strip.setPixelColor(i,0, 0, 0)
     strip.show()
     
+def Off(strip):
+    for i in range(0, strip.numPixels()):
+        strip.setPixelColor(Color(0,0,0))
+    strip.show()
 
+def On(strip):
+    for i in range(0, strip.numPixels()):
+        strip.setPixelColor(Color(255,255,255))
+    strip.show()
 #
 #Color_Array = []
 #for i in range(0, LED_COUNT-1):
 #    Color_Array.append(i)
+
+
 
 def Reset(strip):
     Color_Array = []
