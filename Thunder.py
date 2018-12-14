@@ -28,7 +28,7 @@ app = Flask(__name__)
 api = Api(app)
 
 class controller(Resource):
-
+    global On
     def get(self,status):
         
         if (status == "On" ):
