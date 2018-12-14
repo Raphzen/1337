@@ -52,9 +52,12 @@ def State(value):
     if (value=="Off"):
         for i in range(1, strip.numPixels()):
             strip.setPixelColor(i,Color(0,0,0))
-            print("HI!")
         strip.show()
         return "LED OFF", 200
+    if (value=="On"):
+        for i in range(1, strip.numPixels()):
+            strip.setPixelColor(i,Color(255,255,255))
+        strip.show()
     return "Fick Dich!!!!!", 404
     
 
