@@ -44,7 +44,7 @@ class controller(Resource):
     global Off
     def Off(strip):
         for i in range(0, strip.numPixels()):
-            strip.setPixelColor(Color(0,0,0))
+            strip.setPixelColor(i,Color(0,0,0))
         strip.show()
 
     global On
