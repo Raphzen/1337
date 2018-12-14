@@ -31,9 +31,10 @@ api = Api(app)
 @app.route('/State/<string:Value>')
 
 def State(Value):
-    global On
     global strip
-    On(strip)
+    for i in range(0, strip.numPixels()):
+        strip.setPixelColor(i,Color(0,0,0))
+    strip.show()
     return "Fick Dich!!!!!"
     
 
