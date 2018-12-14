@@ -282,11 +282,11 @@ class controller(Resource):
                         thunder(strip)
                     if randint(0,10) >8:
                         thunder(strip)
-                if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
-                                                    ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
-                    if Current_Conditions=="Mostly Cloudy":
-                        Actual_Mode="Mostly Cloudy"
-                        Mostly_Cloudy(strip)
+                # if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
+                #                                     ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
+                #     if Current_Conditions=="Mostly Cloudy":
+                #         Actual_Mode="Mostly Cloudy"
+                #         Mostly_Cloudy(strip)
                         
                 if Current_Conditions=="Partly Cloudy":
                     Partly_Cloudy(strip)
