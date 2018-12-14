@@ -33,7 +33,7 @@ class controller(Resource):
 
     def get(self,status):
         if (status == "On" ):
-            global On(strip)
+            On(strip)
             return "superOn" ,200
         return "scheisseOn" , 404
 
