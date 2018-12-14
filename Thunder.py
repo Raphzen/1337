@@ -41,12 +41,14 @@ class controller(Resource):
     global strip
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
 
-    global def Off(strip):
+    global Off
+    def Off(strip):
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(Color(0,0,0))
         strip.show()
 
-    def global On(strip):
+    global On
+    def On(strip):
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(Color(255,255,255))
         strip.show()
