@@ -195,6 +195,7 @@ def Partly_Cloudy(strip):
         strip.setPixelColor(i+q, (255,255,255))
     strip.show()
     
+'''
 @app.route('/State/<string:value>')
 def State(value):
     global strip
@@ -211,7 +212,7 @@ def State(value):
 #def RGB(rgb)
     #string "255,100,199" komma trennen und jeden wert zu r g und b zuweisen
     
-
+'''
 
 
 app.run(debug=True)
