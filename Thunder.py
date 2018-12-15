@@ -78,7 +78,7 @@ def weather():
     humidity=int(weather_com_result['current_conditions']['humidity'])
     wind_speed=int(weather_com_result['current_conditions']['wind'])
     Current_Conditions=weather_com_result['current_conditions']['text']
-
+    return Current_Conditions
 
 ##HIER WEITERMACHEN:
 def Static(strip):
