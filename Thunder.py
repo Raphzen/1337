@@ -17,7 +17,7 @@ import array
 #from Blynk import *
 #import BlynkLib
 #import main
-import thread
+import threading
 
 
 # LED strip configuration:
@@ -217,7 +217,6 @@ def State(value):
 def REST():
     app.run(debug=True)
 
-thread.start_new_thread ( REST, ("REST-Thread", 1, ) )
 
 
 
@@ -246,7 +245,8 @@ if __name__ == '__main__':
         
         start_time=0
         while True:
-            thread.start_new_thread (weather(), ("Weather-Thread") )
+            weather-thread=threading.Thread(target=weather, args=(10,)) 
+            weather-thread.start()
             '''
             current_time=time.time()
             if (current_time-start_time)>300:
