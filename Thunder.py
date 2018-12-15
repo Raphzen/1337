@@ -71,7 +71,7 @@ def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
             + array[0:len(array) - n]) 
 
-def weather(x):
+def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
     #temperature=int(weather_com_result['current_conditions']['temperature'])
     #temp_f=temperature * 9 / 5 + 32
@@ -79,6 +79,7 @@ def weather(x):
     #wind_speed=int(weather_com_result['current_conditions']['wind'])
     Current_Conditions=weather_com_result['current_conditions']['text']
     return Current_Conditions
+weather-thread=threading.Thread(target=weather) 
 
 ##HIER WEITERMACHEN:
 def Static(strip):
@@ -242,11 +243,11 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
 
     try:
-        
+        weather-thread.start()
         start_time=0
         while True:
-            weather-thread=threading.Thread(target=weather, args=(10,)) 
-            weather-thread.start()
+            
+            
             '''
             current_time=time.time()
             if (current_time-start_time)>300:
