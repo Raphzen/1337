@@ -232,7 +232,7 @@ def State(value):
 def REST():
     app.run(debug=True)
 
-
+REST_thread=threading.Thread(target=REST) 
 
 
 
@@ -257,7 +257,11 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
 
     try:
+        #Start Threads
         weather_thread.start()
+        REST_thread.start()
+
+
         start_time=0
         while True:
             Current_Conditions=weather_thread.join()
