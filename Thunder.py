@@ -179,6 +179,8 @@ def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
         strip.show()        
         if randint(0,100)>10:
             flash(strip)
+    except KeyboardInterrupt
+
            
 def Mostly_Cloudy(strip):
     Color_Array = []
