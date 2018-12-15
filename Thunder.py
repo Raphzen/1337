@@ -163,7 +163,7 @@ def flash(strip, wait_ms=50):
     strip.show()   
         
 def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
-    while State(value=="Thunder"):    
+    while State(value)=="Thunder":    
         wait_ms=randint(2, 10)
         time.sleep(wait_ms)
         ######old code below#######
