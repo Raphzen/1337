@@ -130,10 +130,11 @@ def Reset(strip):
         run_once=1
 
 def Rain(strip):
-    Color_Array = []
-    # for i in range(0, strip.numPixels()):
-     #        Color_Array.append(i)
     while True:
+        Color_Array = []
+        # for i in range(0, strip.numPixels()):
+        #        Color_Array.append(i)
+    
         Rain_x=randint(40,50)
         for l in range(0, Rain_x):
             for m in range(0, strip.numPixels()):
@@ -187,9 +188,7 @@ def Mostly_Cloudy(strip):
             Color_Array.append(i)
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
-
     SetSky(strip)
-
     while True:
         Cloud=randint(15,30)
         Sky=randint(10,20)
@@ -227,12 +226,15 @@ def State(value):
         On(strip)
         return "LED ON", 200
     while (value=="Thunder"):
+        Reset(strip)
         thunder(strip)
         return "Thunder", 200
     if (value=="Mostly_Cloudy"):
+        Reset(strip)
         Mostly_Cloudy(strip)
         return "Mostly Cloudy", 200
     if (value=="Rain"):
+        Reset(strip)
         Rain(strip)
         return "Rain", 200
     
