@@ -224,8 +224,8 @@ def State(value):
         thunder(strip)
         return "Thunder", 200
     if (value=="Mostly Cloudy"):
-    Mostly_Cloudy(strip)
-    return "Mostly Cloudy", 200
+        Mostly_Cloudy(strip)
+        return "Mostly Cloudy", 200
     
     return "", 404
 
