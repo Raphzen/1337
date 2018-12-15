@@ -71,7 +71,7 @@ def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
             + array[0:len(array) - n]) 
 
-def weather():
+def weather(x):
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
     #temperature=int(weather_com_result['current_conditions']['temperature'])
     #temp_f=temperature * 9 / 5 + 32
@@ -245,7 +245,7 @@ if __name__ == '__main__':
         
         start_time=0
         while True:
-            weather-thread=threading.Thread(target=weather) 
+            weather-thread=threading.Thread(target=weather, args=(10,)) 
             weather-thread.start()
             '''
             current_time=time.time()
