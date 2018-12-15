@@ -221,7 +221,7 @@ def State(value):
         On(strip)
         return "LED ON", 200
     if (value=="Thunder"):
-        thunder()
+        thunder(strip)
         return "Thunder", 200
     
     return "", 404
