@@ -6,6 +6,8 @@
 #include <BlynkSimpleEthernet.h>
 #include <Windows.h>
 
+
+
 int main() {
     Blynk();
 }
