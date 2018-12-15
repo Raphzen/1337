@@ -181,6 +181,11 @@ def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
             if randint(0,100)>10:
                 flash(strip)
     except KeyboardInterrupt:
+        if args.clear:
+            for i in range(0, strip.numPixels()):
+                strip.setPixelColor(i, Color(0,0,0))
+            strip.show()
+
 
            
 def Mostly_Cloudy(strip):
