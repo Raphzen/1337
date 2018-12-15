@@ -162,18 +162,22 @@ def flash(strip, wait_ms=50):
     strip.show()   
         
 def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
-    random_Position=randint(0, strip.numPixels())
-    for Length in range(randint(10, 40)):
-        strip.setPixelColor(random_Position+Length, Color(255,255,255))
-        strip.show()
-        time.sleep(wait_ms/10000)
-        #strip.setPixelColor(random_Position+Length, 0)
-        #strip.show()
-    for i in range(strip.numPixels()):
-        strip.setPixelColor(i, 0)
-    strip.show()        
-    if randint(0,100)>10:
-        flash(strip)
+    While True:    
+        wait_ms=randint(2, 10)
+        time.sleep(wait_ms)
+        ######old code below#######
+        random_Position=randint(0, strip.numPixels())
+        for Length in range(randint(10, 40)):
+            strip.setPixelColor(random_Position+Length, Color(255,255,255))
+            strip.show()
+            time.sleep(wait_ms/10000)
+            #strip.setPixelColor(random_Position+Length, 0)
+            #strip.show()
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i, 0)
+        strip.show()        
+        if randint(0,100)>10:
+            flash(strip)
            
 def Mostly_Cloudy(strip):
     Color_Array = []
