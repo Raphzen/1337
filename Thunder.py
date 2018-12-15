@@ -220,7 +220,7 @@ def State(value):
     if (value=="On"):
         On(strip)
         return "LED ON", 200
-    if (value=="Thunder"):
+    while (value=="Thunder"):
         thunder(strip)
         return "Thunder", 200
     if (value=="Mostly Cloudy"):
