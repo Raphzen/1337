@@ -220,9 +220,9 @@ def State(value):
     if (value=="On"):
         On(strip)
         return "LED ON", 200
-    if (value=="weather"):
-        weather()
-        return Current_Conditions, "Get Weather", 200
+    if (value=="Thunder"):
+        thunder()
+        return "Thunder", 200
     
     return "", 404
 
