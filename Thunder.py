@@ -208,8 +208,8 @@ def State(value):
     
     return "", 404
 
-@app.route('/RGB/<string:Color>')
-def RGB(rgb)
+#@app.route('/RGB/<string:Color>')
+#def RGB(rgb)
     #string "255,100,199" komma trennen und jeden wert zu r g und b zuweisen
     
 
