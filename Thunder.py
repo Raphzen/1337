@@ -142,7 +142,7 @@ def Rain(strip):
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  #weiterschieben
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(25/1000.0)
-        Color_Array[0]=Color(13,80,250)
+            Color_Array[0]=Color(13,80,250)
 
 
 def flash(strip, wait_ms=50):
