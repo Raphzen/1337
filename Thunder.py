@@ -79,7 +79,7 @@ def weather():
     #wind_speed=int(weather_com_result['current_conditions']['wind'])
     Current_Conditions=weather_com_result['current_conditions']['text']
     return Current_Conditions
-weather_thread=threading.Thread(target=weather) 
+weather_thread=threading.Thread(target=weather, None, Current_Conditions) 
 
 ##HIER WEITERMACHEN:
 def Static(strip):
