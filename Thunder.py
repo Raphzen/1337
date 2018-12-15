@@ -229,7 +229,7 @@ def State(value):
     while (value=="Thunder"):
         Reset(strip)
         return value
-        thunder(strip, value)
+        thunder(strip, wait_ms ,value)
         return "Thunder", 200
     if (value=="Mostly_Cloudy"):
         Reset(strip)
