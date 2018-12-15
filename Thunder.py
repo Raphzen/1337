@@ -189,25 +189,26 @@ def Mostly_Cloudy(strip):
 
     SetSky(strip)
 
-    Cloud=randint(15,30)
-    Sky=randint(10,20)
-    for j in range(0, Cloud):
-        Color_Array[1]=Color(120,120,120)
-        for k in range(0, strip.numPixels()):
-            strip.setPixelColor(k, Color_Array[k])
-        strip.show()
-        
-        Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
-                + Color_Array[0:len(Color_Array) - 1]) 
-        time.sleep(100/1000.0)
-    for l in range(0, Sky):
-        Color_Array[1]=Color(13,80,250)
-        for m in range(0, strip.numPixels()):
-            strip.setPixelColor(m, Color_Array[m])
-        strip.show()
-        Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
-                + Color_Array[0:len(Color_Array) - 1]) 
-        time.sleep(100/1000.0)
+    while True:
+        Cloud=randint(15,30)
+        Sky=randint(10,20)
+        for j in range(0, Cloud):
+            Color_Array[1]=Color(120,120,120)
+            for k in range(0, strip.numPixels()):
+                strip.setPixelColor(k, Color_Array[k])
+            strip.show()
+            
+            Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
+                    + Color_Array[0:len(Color_Array) - 1]) 
+            time.sleep(100/1000.0)
+        for l in range(0, Sky):
+            Color_Array[1]=Color(13,80,250)
+            for m in range(0, strip.numPixels()):
+                strip.setPixelColor(m, Color_Array[m])
+            strip.show()
+            Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
+                    + Color_Array[0:len(Color_Array) - 1]) 
+            time.sleep(100/1000.0)
            
 def Partly_Cloudy(strip):
     for i in range(strip.numPixels()):
