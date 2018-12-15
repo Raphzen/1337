@@ -228,13 +228,7 @@ def State(value):
     #string "255,100,199" komma trennen und jeden wert zu r g und b zuweisen
     
 
-
-def REST():
-    app.run(debug=True)
-
-REST_thread=threading.Thread(target=REST) 
-
-
+app.run(debug=True)
 
 
 
@@ -259,7 +253,6 @@ if __name__ == '__main__':
     try:
         #Start Threads
         weather_thread.start()
-        REST_thread.start()
 
 
         start_time=0
