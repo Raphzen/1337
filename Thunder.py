@@ -17,7 +17,7 @@ import array
 #from Blynk import *
 #import BlynkLib
 #import main
-import threading
+from threading import Thread
 
 
 # LED strip configuration:
