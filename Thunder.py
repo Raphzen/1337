@@ -243,10 +243,10 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
 
     try:
-        
+        weather_thread.start()
         start_time=0
         while True:
-            weather_thread.start()
+            
             weather_thread.join()
             Current_Conditions=weather_thread.join()
             '''
