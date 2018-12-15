@@ -94,19 +94,10 @@ def weather():
 weather_thread=threading.Thread(target=weather) 
 
 
-
-##HIER WEITERMACHEN:
 def Static(strip):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,0, 0, 0)
     strip.show()
-    
-
-#
-#Color_Array = []
-#for i in range(0, LED_COUNT-1):
-#    Color_Array.append(i)
-
 
 def Off(strip):
     for i in range(0, strip.numPixels()):
@@ -117,7 +108,6 @@ def On(strip):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(255,255,255))
     strip.show()
-
 
 def Reset(strip):
     Color_Array = []
@@ -144,7 +134,6 @@ def Rain(strip):
             time.sleep(25/1000.0)
             Color_Array[0]=Color(13,80,250)
 
-
 def flash(strip, wait_ms=50):
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(125,125,125))
@@ -162,9 +151,8 @@ def flash(strip, wait_ms=50):
         strip.setPixelColor(i,0)
     strip.show()   
         
-        # wait_ms=numpy.random.uniform(0.01,0.1)
-def thunder(strip):
-    #while value=="Thunder":    
+# wait_ms=numpy.random.uniform(0.01,0.1) ##stand vorher im thunder mit drin
+def thunder(strip): 
     wait_ms=randint(2, 10)
     time.sleep(wait_ms)
     ######old code below#######
@@ -173,8 +161,6 @@ def thunder(strip):
         strip.setPixelColor(random_Position+Length, Color(255,255,255))
         strip.show()
         time.sleep(wait_ms/10000)
-        #strip.setPixelColor(random_Position+Length, 0)
-        #strip.show()
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, 0)
     strip.show()        
@@ -217,7 +203,7 @@ def Partly_Cloudy(strip):
         strip.setPixelColor(i+q, (255,255,255))
     strip.show()
     
-
+#REST
 @app.route('/State/<string:value>')
 def State(value):
     global strip
