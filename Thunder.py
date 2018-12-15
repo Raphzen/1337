@@ -246,7 +246,7 @@ if __name__ == '__main__':
         
         start_time=0
         while True:
-            thread.start_new_thread ( weather(), ("Weather-Thread", 2, ) )
+            thread.start_new_thread (weather())
             '''
             current_time=time.time()
             if (current_time-start_time)>300:
