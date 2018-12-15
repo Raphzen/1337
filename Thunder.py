@@ -73,10 +73,10 @@ def rotate(array, n):
 
 def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
-    temperature=int(weather_com_result['current_conditions']['temperature'])
-    temp_f=temperature * 9 / 5 + 32
-    humidity=int(weather_com_result['current_conditions']['humidity'])
-    wind_speed=int(weather_com_result['current_conditions']['wind'])
+    #temperature=int(weather_com_result['current_conditions']['temperature'])
+    #temp_f=temperature * 9 / 5 + 32
+    #humidity=int(weather_com_result['current_conditions']['humidity'])
+    #wind_speed=int(weather_com_result['current_conditions']['wind'])
     Current_Conditions=weather_com_result['current_conditions']['text']
     return Current_Conditions
 
