@@ -162,7 +162,7 @@ def flash(strip, wait_ms=50):
         strip.setPixelColor(i,0)
     strip.show()   
         
-def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1)):
+def thunder(strip, wait_ms=numpy.random.uniform(0.01,0.1), value):
     while value=="Thunder":    
         wait_ms=randint(2, 10)
         time.sleep(wait_ms)
@@ -228,7 +228,7 @@ def State(value):
         return "LED ON", 200
     while (value=="Thunder"):
         Reset(strip)
-        thunder(strip)
+        thunder(strip, value)
         return "Thunder", 200
     if (value=="Mostly_Cloudy"):
         Reset(strip)
