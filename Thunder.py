@@ -65,7 +65,7 @@ api = Api(app)
 
 
 
-#Actual_Mode="Initialize"
+Actual_Mode="Initialize"
 
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
