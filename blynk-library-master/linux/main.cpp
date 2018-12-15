@@ -22,6 +22,13 @@ sudo ./blynk --token=e9923f06747e4e44a698f04324c909ec
 #include <BlynkSocket.h>
 #include <BlynkOptionsParser.h>
 
+
+//Curl Includes
+#include <curl/curl.h>
+#include <boost/asio.hpp>
+#include <boost/bind.hpp>
+#include <iostream>
+
 static BlynkTransportSocket _blynkTransport;
 BlynkSocket Blynk(_blynkTransport);
 

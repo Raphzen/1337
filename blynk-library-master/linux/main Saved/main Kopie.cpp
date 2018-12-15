@@ -7,12 +7,10 @@
  * @brief
  */
 
-
-/** To run blynk use following commands:
-cd /home/Thunder/1337/blynk-library/linux/
-sudo ./blynk --token=e9923f06747e4e44a698f04324c909ec
-*/
 //#define BLYNK_DEBUG
+#include <Python.h>
+#include <boost/python.hpp>
+#include <string>
 #define BLYNK_PRINT stdout
 #ifdef RASPBERRY
   #include <BlynkApiWiringPi.h>
@@ -21,6 +19,9 @@ sudo ./blynk --token=e9923f06747e4e44a698f04324c909ec
 #endif
 #include <BlynkSocket.h>
 #include <BlynkOptionsParser.h>
+
+#include <numpy/arrayobject.h>
+
 
 static BlynkTransportSocket _blynkTransport;
 BlynkSocket Blynk(_blynkTransport);
@@ -32,10 +33,20 @@ static uint16_t port;
 
 BlynkTimer tmr;
 
-BLYNK_WRITE(V0)
+BLYNK_WRITE(V1)
 {
     printf("Got a value: %s\n", param[0].asStr());
+
+    return g;//for Green
 }
+// eingefügt
+// BOOST_PYTHON_MODULE(zoo) {
+//     // An established convention for using boost.python.
+//     using namespace boost::python;
+
+//     // Expose the function hello().
+//     def("hello", hello);
+// }
 
 void setup()
 {
@@ -63,3 +74,4 @@ int main(int argc, char* argv[])
 
     return 0;
 }
+
