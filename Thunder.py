@@ -249,6 +249,7 @@ if __name__ == '__main__':
             
             weather_thread.join()
             Current_Conditions=weather_thread.join()
+            print(Current_Conditions)
             '''
             current_time=time.time()
             if (current_time-start_time)>300:
