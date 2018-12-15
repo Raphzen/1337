@@ -18,7 +18,7 @@ import array
 #import BlynkLib
 #import main
 from threading import Thread
-
+import threading
 
 # LED strip configuration:
 LED_COUNT      = 144      # Number of LED pixels.
