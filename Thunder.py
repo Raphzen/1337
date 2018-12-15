@@ -79,7 +79,7 @@ def weather():
     #wind_speed=int(weather_com_result['current_conditions']['wind'])
     Current_Conditions=weather_com_result['current_conditions']['text']
     return Current_Conditions
-weather-thread=threading.Thread(target=weather) 
+weather_thread=threading.Thread(target=weather) 
 
 ##HIER WEITERMACHEN:
 def Static(strip):
@@ -243,7 +243,7 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
 
     try:
-        weather-thread.start()
+        weather_thread.start()
         start_time=0
         while True:
             
