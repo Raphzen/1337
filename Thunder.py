@@ -77,7 +77,6 @@ def weather():
     temp_f=temperature * 9 / 5 + 32
     humidity=int(weather_com_result['current_conditions']['humidity'])
     wind_speed=int(weather_com_result['current_conditions']['wind'])
-
     Current_Conditions=weather_com_result['current_conditions']['text']
 
 
@@ -239,9 +238,11 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
 
     try:
-        thread.start_new_thread ( weather, ("Weather-Thread", 2, ) )
+        
         start_time=0
         while True:
+            thread.start_new_thread ( weather, ("Weather-Thread", 2, ) )
+            '''
             current_time=time.time()
             if (current_time-start_time)>300:
                 ###Durch weather() ersetzen 
@@ -255,7 +256,7 @@ if __name__ == '__main__':
                 #beaufort = int(weather_com_result['wind']['speed'])
                 print("Aktuelles Wetter: " + Current_Conditions)
                 #print("Windgeschwindigkeit: " + beaufort)
-
+            '''
 
             #Current_Conditions="Rain"
             ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
