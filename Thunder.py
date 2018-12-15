@@ -245,7 +245,7 @@ if __name__ == '__main__':
         
         start_time=0
         while True:
-            weather-thread=threading.Thread(target=weather, args=(10,)) 
+            weather-thread=threading.Thread(target=weather) 
             weather-thread.start()
             '''
             current_time=time.time()
