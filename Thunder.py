@@ -228,7 +228,7 @@ def State(value):
     while (value=="Thunder"):
         thunder(strip)
         return "Thunder", 200
-    if (value=="Mostly Cloudy"):
+    if (value=="Mostly_Cloudy"):
         Mostly_Cloudy(strip)
         return "Mostly Cloudy", 200
     
