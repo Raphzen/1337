@@ -214,8 +214,12 @@ def State(value):
     
 '''
 
+def REST():
+    app.run(debug=True)
 
-app.run(debug=True)
+thread.start_new_thread ( REST, ("REST-Thread", 1, ) )
+
+
 
 
 
