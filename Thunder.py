@@ -207,6 +207,7 @@ def State(value):
 def update_weather(status):
     global Actual_Mode
     global weather_thread
+    print("HI")
     try:
 
         start_time=0
