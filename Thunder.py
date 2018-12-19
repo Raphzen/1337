@@ -190,7 +190,7 @@ def State(value):
             return "Thunder", 200
     if (value=="Mostly_Cloudy"):
         Reset(strip)
-        Mostly_Cloudy(strip)
+        Mostly_Cloudy(strip, status)
         return "Mostly Cloudy", 200
     if (value=="Rain"):
         Reset(strip)
