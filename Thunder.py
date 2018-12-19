@@ -66,7 +66,7 @@ def Static(strip):
 
 def Off(strip):
     global status
-    status= Value('i',0)
+    status= 0
     global weather_thread
     print(weather_thread.is_alive())
     weather_thread.terminate()
@@ -147,7 +147,7 @@ def Mostly_Cloudy(strip, status):
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
-    while status.value==1:
+    while status==1:
         Cloud=randint(15,30)
         Sky=randint(10,20)
         for j in range(0, Cloud):
@@ -212,7 +212,7 @@ def update_weather():
     print("HI")
     try:
         start_time=0
-        while status.value == 1:
+        while status == 1:
             current_time=time.time()
             if (current_time-start_time)>300:
                 Current_Conditions=weather()
@@ -301,7 +301,7 @@ def update_weather():
                 print("HI MOSTLY CLOUDY")
                 Actual_Mode="Mostly Cloudy"
                 global Current_Thread_Mode
-                
+                global status
                 status=Value('i',1)
                 Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
                 Current_Thread_Mode.daemon=True
