@@ -210,7 +210,7 @@ def update_weather(status):
     try:
 
         start_time=0
-        while weather_thread.is_alive():
+        while status==1:
 
             current_time=time.time()
             if (current_time-start_time)>300:
@@ -340,6 +340,6 @@ if __name__ == '__main__':
     weather_thread=Process(target=update_weather, args=(status,))
     weather_thread.daemon=False
     weather_thread.start()
-
+    print(weather_thread.is_alive)
     app.run(debug=True)
 
