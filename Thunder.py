@@ -144,7 +144,7 @@ def Mostly_Cloudy(strip):
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
-    t=threading.CurrentThread()
+    t=threading.currentThread()
     while getattr(t, "do_run", True):
         Cloud=randint(15,30)
         Sky=randint(10,20)
