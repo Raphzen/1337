@@ -14,7 +14,7 @@ import pywapi
 import string
 import numpy
 import array
-from multiprocessing import Process
+from multiprocessing import *
 import threading
 
 # LED strip configuration:
