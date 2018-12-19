@@ -212,7 +212,7 @@ def update_weather():
     try:
         print(status)
         start_time=0
-        while status.value==1:
+        while True:
             print(status)
             current_time=time.time()
             if (current_time-start_time)>300:
@@ -302,7 +302,7 @@ def update_weather():
                 print("HI MOSTLY CLOUDY")
                 Actual_Mode="Mostly Cloudy"
                 global Current_Thread_Mode
-                #global status
+                global status
                 status=Value('i',1)
                 Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
                 Current_Thread_Mode.daemon=True
@@ -338,8 +338,8 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
     
     global weather_thread
-    global status
-    status=Value('i',1)
+    #global status
+    #status=Value('i',1)
     weather_thread=Process(target=update_weather)
     weather_thread.daemon=False
     weather_thread.start()
