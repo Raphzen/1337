@@ -207,13 +207,10 @@ def State(value):
 def update_weather():
     global Actual_Mode
     global weather_thread
-    global status
     print("HI")
     try:
-        print(status)
         start_time=0
         while True:
-            print(status)
             current_time=time.time()
             if (current_time-start_time)>300:
                 Current_Conditions=weather()
