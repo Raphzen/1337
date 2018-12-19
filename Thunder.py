@@ -331,7 +331,7 @@ def update_weather():
             strip.show()
 
 
-weather_thread=multiprocessing.Process(target=update_weather)
+
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -344,7 +344,8 @@ if __name__ == '__main__':
     print ('Press Ctrl-C to quit.')
     if not args.clear:
         print('Use "-c" argument to clear LEDs on exit')
-
+    
+    global weather_thread=multiprocessing.Process(target=update_weather)
     weather_thread.start()
 
     app.run(debug=True)
