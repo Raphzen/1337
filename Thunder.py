@@ -35,8 +35,7 @@ strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
 strip.begin()
 
 global weather_thread
-global test
-test = True
+
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
 
@@ -88,8 +87,6 @@ def Static(strip):
 
 def Off(strip):
     global weather_thread
-    global test
-    test = False
     print(weather_thread.is_alive())
     weather_thread.terminate()
     weather_thread.join()
@@ -232,11 +229,11 @@ def State(value):
 
 def update_weather():
     global Actual_Mode
-    global test
+    global weather_thread
     try:
 
         start_time=0
-        while test:
+        while weather_thread.is_alive():
 
             current_time=time.time()
             if (current_time-start_time)>300:
