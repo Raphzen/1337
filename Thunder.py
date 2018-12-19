@@ -358,7 +358,7 @@ if __name__ == '__main__':
     weather_thread.start()
 
     app.run(debug=True)
-    strip_thread=multiprocessing.Process(target=start_strip
+    strip_thread=multiprocessing.Process(target=start_strip)
     strip_thread.daemon=True
     strip_thread.start()
     
