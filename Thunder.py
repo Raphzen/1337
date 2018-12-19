@@ -66,7 +66,7 @@ def Static(strip):
 def Off(strip):
     global weather_thread
     print(weather_thread.is_alive())
-    weather_thread._stop()
+    weather_thread.stop()
     weather_thread.join()
     print(weather_thread.is_alive())
     for i in range(0, strip.numPixels()):
@@ -296,7 +296,7 @@ def update_weather():
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     global Current_Thread_Mode
-                    Current_Thread_Mode=threading.Thread(target=Mostly_Cloudy,args=(strip,))
+                    Current_Thread_Mode=Processing.Process(target=Mostly_Cloudy,args=(strip,))
                     Current_Thread_Mode.daemon=False
                     Current_Thread_Mode.start()
                     
@@ -328,7 +328,7 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
     
     global weather_thread
-    weather_thread=threading.Thread(target=update_weather)
+    weather_thread=Processing.Process(target=update_weather)
     #weather_thread.daemon=False
     weather_thread.start()
 
