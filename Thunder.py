@@ -347,6 +347,7 @@ if __name__ == '__main__':
     
     global weather_thread
     weather_thread=multiprocessing.Process(target=update_weather)
+    weather_thread.daemon=True
     weather_thread.start()
 
     app.run(debug=True)
