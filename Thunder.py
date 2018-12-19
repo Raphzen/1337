@@ -32,7 +32,7 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
 global strip
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
-
+strip.begin()
 
 global weather_thread
 
@@ -335,9 +335,7 @@ def update_weather():
                 strip.setPixelColor(i, Color(0,0,0))
             strip.show()
 
-def start_strip():
-    global strip
-    strip.begin()
+
 
 
 # Main program logic follows:
@@ -358,8 +356,4 @@ if __name__ == '__main__':
     weather_thread.start()
 
     app.run(debug=True)
-    strip_thread=multiprocessing.Process(target=start_strip)
-    strip_thread.daemon=True
-    strip_thread.start()
-    
 
