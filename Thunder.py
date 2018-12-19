@@ -335,7 +335,9 @@ def update_weather():
                 strip.setPixelColor(i, Color(0,0,0))
             strip.show()
 
-
+def start_strip():
+    global strip
+    strip.begin()
 
 
 # Main program logic follows:
@@ -356,7 +358,7 @@ if __name__ == '__main__':
     weather_thread.start()
 
     app.run(debug=True)
-    strip_thread=multiprocessing.Process(target=strip.begin())
+    strip_thread=multiprocessing.Process(target=start_strip
     strip_thread.daemon=True
     strip_thread.start()
     
