@@ -345,7 +345,8 @@ if __name__ == '__main__':
     if not args.clear:
         print('Use "-c" argument to clear LEDs on exit')
     
-    global weather_thread=multiprocessing.Process(target=update_weather)
+    global weather_thread
+    weather_thread=multiprocessing.Process(target=update_weather)
     weather_thread.start()
 
     app.run(debug=True)
