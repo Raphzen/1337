@@ -206,7 +206,6 @@ def State(value):
 def update_weather():
     global Actual_Mode
     global weather_thread
-    global Current_Thread_Mode
     try:
 
         start_time=0
@@ -299,6 +298,7 @@ def update_weather():
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     
+                    global Current_Thread_Mode
                     Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy(strip))
                     Current_Thread_Mode.daemon=True
                     Current_Thread_Mode.start()
