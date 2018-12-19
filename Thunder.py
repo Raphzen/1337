@@ -222,6 +222,7 @@ def State(value):
 
 
 def update_weather():
+    global Actual_Mode
     try:
 
         start_time=0
@@ -229,7 +230,7 @@ def update_weather():
 
             current_time=time.time()
             if (current_time-start_time)>300:
-                Actual_Mode=weather()
+                Current_Conditions=weather()
                 
 
 
