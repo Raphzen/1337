@@ -138,7 +138,7 @@ def thunder(strip):
     if randint(0,100)>10:
         flash(strip)
            
-def Mostly_Cloudy(strip, status):
+def Mostly_Cloudy(strip):
     Color_Array = []
     def SetSky(strip):
         for i in range(0, strip.numPixels()):
@@ -146,7 +146,7 @@ def Mostly_Cloudy(strip, status):
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
-    while status.value==1:
+    while True:
         Cloud=randint(15,30)
         Sky=randint(10,20)
         for j in range(0, Cloud):
@@ -210,7 +210,7 @@ def update_weather(status):
     try:
 
         start_time=0
-        while weather_thread.is_alive():
+        while status.value == 1:
 
             current_time=time.time()
             if (current_time-start_time)>300:
@@ -300,7 +300,7 @@ def update_weather(status):
                     Actual_Mode="Mostly Cloudy"
                     global Current_Thread_Mode
                     
-                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
+                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,))
                     Current_Thread_Mode.daemon=True
                     Current_Thread_Mode.start()
                     
