@@ -39,9 +39,11 @@ static uint16_t port;
 
 BlynkTimer tmr;
 
-BLYNK_WRITE(V0)
+BLYNK_WRITE(V0, V1, V2)
 {
-    printf("Got a value: %s\n", param[0].asStr());
+    printf("Red: %s\n", param[0].asStr());
+    printf("Green: %s\n", param[1].asStr());
+    printf("Blue: %s\n", param[2].asStr());
 }
 
 void setup()
