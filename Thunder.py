@@ -87,8 +87,10 @@ def Static(strip):
 
 def Off(strip):
     global weather_thread
+    print(weather_thread.is_alive())
     weather_thread.terminate()
     weather_thread.join()
+    print(weather_thread.is_alive())
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
     strip.show()
