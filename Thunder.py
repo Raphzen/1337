@@ -65,7 +65,7 @@ def Static(strip):
 
 def Off(strip):
     global status
-    status=False
+    status=0
     global weather_thread
     print(weather_thread.is_alive())
     weather_thread.terminate()
@@ -204,14 +204,15 @@ def State(value):
     #string "255,100,199" komma trennen und jeden wert zu r g und b zuweisen
     
 
-def update_weather(status):
+def update_weather():
     global Actual_Mode
     global weather_thread
+    global status
     print("HI")
     try:
         print(status)
         start_time=0
-        while status==Value('b', True):
+        while status==1:
             print(status)
             current_time=time.time()
             if (current_time-start_time)>300:
@@ -338,7 +339,7 @@ if __name__ == '__main__':
     
     global weather_thread
     global status
-    status=Value('b',True)
+    status=Value('i',1)
     weather_thread=Process(target=update_weather, args=(status,))
     weather_thread.daemon=False
     weather_thread.start()
