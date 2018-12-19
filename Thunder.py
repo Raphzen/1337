@@ -31,6 +31,7 @@ strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
 strip.begin()
 
 global weather_thread
+global Current_Thread_Mode
 
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
@@ -63,10 +64,13 @@ def Static(strip):
 
 def Off(strip):
     global weather_thread
+    global Current_Thread_Mode
     print(weather_thread.is_alive())
+    print(Current_Thread_Mode.is_alive())
     weather_thread.terminate()
-    weather_thread.join()
+    Current_Thread_Mode.terminate()
     print(weather_thread.is_alive())
+    print(Current_Thread_Mode.is_alive())
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
     strip.show()
@@ -202,6 +206,7 @@ def State(value):
 def update_weather():
     global Actual_Mode
     global weather_thread
+    global Current_Thread_Mode
     try:
 
         start_time=0
@@ -293,9 +298,10 @@ def update_weather():
                                                 ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
-                    Call_Mostly_Cloudy=multiprocessing.Process(target=Mostly_Cloudy(strip))
-                    Call_Mostly_Cloudy.daemon=True
-                    Call_Mostly_Cloudy.start()
+                    
+                    Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy(strip))
+                    Current_Thread_Mode.daemon=True
+                    Current_Thread_Mode.start()
                     
             if Current_Conditions=="Partly Cloudy":
                 Partly_Cloudy(strip)
