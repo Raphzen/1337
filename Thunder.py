@@ -177,19 +177,26 @@ def Partly_Cloudy(strip):
 @app.route('/State/<string:value>')
 def State(value):
     global strip
-    global status
     if (value=="Off"):
         Off(strip)
         return "LED OFF", 200
     if (value=="On"):
         On(strip)
         return "LED ON", 200
-    if (value=="Weather"):
-        global weather_thread
-        weather_thread=Process(target=update_weather)
-        weather_thread.daemon=False
-        weather_thread.start()
-        return "Weather ON", 200
+    if (value=="Thunder"):
+        while (value=="Thunder"):
+            Reset(strip)
+            thunder(strip)
+            return "Thunder", 200
+    if (value=="Mostly_Cloudy"):
+        Reset(strip)
+        Mostly_Cloudy(strip)
+        return "Mostly Cloudy", 200
+    if (value=="Rain"):
+        Reset(strip)
+        Rain(strip)
+        return "Rain", 200
+    
     return "", 404
 
 #@app.route('/RGB/<string:Color>')
