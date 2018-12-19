@@ -204,7 +204,7 @@ def State(value):
     #string "255,100,199" komma trennen und jeden wert zu r g und b zuweisen
     
 
-def update_weather():
+def update_weather(status):
     global Actual_Mode
     global weather_thread
     try:
@@ -299,8 +299,7 @@ def update_weather():
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     global Current_Thread_Mode
-                    global status
-                    status=Value('i',1)
+                    
                     Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
                     Current_Thread_Mode.daemon=True
                     Current_Thread_Mode.start()
@@ -333,9 +332,10 @@ if __name__ == '__main__':
     print ('Press Ctrl-C to quit.')
     if not args.clear:
         print('Use "-c" argument to clear LEDs on exit')
-    
+    global status
+    status=Value('i',1)
     global weather_thread
-    weather_thread=Process(target=update_weather)
+    weather_thread=Process(target=update_weather, args=(status))
     weather_thread.daemon=False
     weather_thread.start()
 
