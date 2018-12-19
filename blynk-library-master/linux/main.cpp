@@ -12,7 +12,7 @@
 cd /home/Thunder/1337/blynk-library/linux/
 sudo ./blynk --token=e9923f06747e4e44a698f04324c909ec
 */
-//#define BLYNK_DEBUG
+#define BLYNK_DEBUG
 #define BLYNK_PRINT stdout
 #ifdef RASPBERRY
   #include <BlynkApiWiringPi.h>
