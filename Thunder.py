@@ -137,6 +137,7 @@ def thunder(strip):
         flash(strip)
            
 def Mostly_Cloudy(strip):
+    global weather_thread
     Color_Array = []
     def SetSky(strip):
         for i in range(0, strip.numPixels()):
@@ -164,6 +165,8 @@ def Mostly_Cloudy(strip):
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(100/1000.0)
+        if weather_thread.is_alive()==False:
+            break
            
 def Partly_Cloudy(strip):
     for i in range(strip.numPixels()):
