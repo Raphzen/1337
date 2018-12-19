@@ -65,7 +65,7 @@ def Static(strip):
 def Off(strip):
     global weather_thread
     print(weather_thread.is_alive())
-    weather_thread.join()
+    weather_thread.terminate()
     print(weather_thread.is_alive())
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
@@ -330,6 +330,7 @@ if __name__ == '__main__':
     weather_thread=multiprocessing.Process(target=update_weather)
     weather_thread.daemon=False
     weather_thread.start()
+    print(weather_thread.start())
 
     app.run(debug=True)
 
