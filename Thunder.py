@@ -33,6 +33,7 @@ strip.begin()
 
 global weather_thread
 global Current_Thread_Mode
+global status
 
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
@@ -207,6 +208,7 @@ def State(value):
 def update_weather():
     global Actual_Mode
     global weather_thread
+    global status
     print("HI")
     try:
         start_time=0
@@ -299,7 +301,7 @@ def update_weather():
                 print("HI MOSTLY CLOUDY")
                 Actual_Mode="Mostly Cloudy"
                 global Current_Thread_Mode
-                global status
+                
                 status=Value('i',1)
                 Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
                 Current_Thread_Mode.daemon=True
