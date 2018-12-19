@@ -177,6 +177,7 @@ def Partly_Cloudy(strip):
 @app.route('/State/<string:value>')
 def State(value):
     global strip
+    global status
     if (value=="Off"):
         Off(strip)
         return "LED OFF", 200
