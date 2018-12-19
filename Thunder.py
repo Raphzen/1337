@@ -337,8 +337,8 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
     
     global weather_thread
-    #global status
-    #status=Value('i',1)
+    global status
+    status=Value('i',1)
     weather_thread=Process(target=update_weather)
     weather_thread.daemon=False
     weather_thread.start()
