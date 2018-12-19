@@ -297,7 +297,7 @@ def update_weather():
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     global Current_Thread_Mode
-                    Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy,args=(strip,))
+                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,))
                     Current_Thread_Mode.daemon=False
                     Current_Thread_Mode.start()
                     
@@ -331,7 +331,7 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
     
     global weather_thread
-    weather_thread=multiprocessing.Process(target=update_weather)
+    weather_thread=Process(target=update_weather)
     #weather_thread.daemon=False
     weather_thread.start()
 
