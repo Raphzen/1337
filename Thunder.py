@@ -15,6 +15,7 @@ import string
 import numpy
 import array
 import multiprocessing
+import threading
 
 # LED strip configuration:
 LED_COUNT      = 144      # Number of LED pixels.
@@ -294,10 +295,10 @@ def update_weather():
                                                 ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
-                
+                    lock=Lock()
                     global Current_Thread_Mode
-                    Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy,args=(strip,))
-                    Current_Thread_Mode.daemon=False
+                    Current_Thread_Mode=threading.Thread(target=Mostly_Cloudy,args=(strip,lock,))
+                    #Current_Thread_Mode.daemon=False
                     Current_Thread_Mode.start()
                     
             if Current_Conditions=="Partly Cloudy":
@@ -328,8 +329,8 @@ if __name__ == '__main__':
         print('Use "-c" argument to clear LEDs on exit')
     
     global weather_thread
-    weather_thread=multiprocessing.Process(target=update_weather)
-    weather_thread.daemon=False
+    weather_thread=threading.Thread(target=update_weather)
+    #weather_thread.daemon=False
     weather_thread.start()
 
     app.run(debug=True)
