@@ -294,16 +294,16 @@ def update_weather(status):
             #         thunder(strip)
             #     if randint(0,10) >8:
             #         thunder(strip)
-            if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
+            #if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
                                                 ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
-                if Current_Conditions=="Mostly Cloudy":
-                    Actual_Mode="Mostly Cloudy"
-                    global Current_Thread_Mode
+            if Current_Conditions=="Mostly Cloudy":
+                Actual_Mode="Mostly Cloudy"
+                global Current_Thread_Mode
 #                    global status
- #                   status=Value('i',1)
-                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
-                    Current_Thread_Mode.daemon=True
-                    Current_Thread_Mode.start()
+#                   status=Value('i',1)
+                Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
+                Current_Thread_Mode.daemon=True
+                Current_Thread_Mode.start()
                     
             # if Current_Conditions=="Partly Cloudy":
             #     Partly_Cloudy(strip)
