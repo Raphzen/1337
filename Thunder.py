@@ -299,7 +299,7 @@ def update_weather(status):
             if Current_Conditions=="Mostly Cloudy":
                 Actual_Mode="Mostly Cloudy"
                 global Current_Thread_Mode
-                global status
+                #global status
                 status=Value('i',1)
                 Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
                 Current_Thread_Mode.daemon=True
