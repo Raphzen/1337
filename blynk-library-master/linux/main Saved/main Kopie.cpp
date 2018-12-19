@@ -33,7 +33,7 @@ static uint16_t port;
 
 BlynkTimer tmr;
 
-BLYNK_WRITE(V1)
+BLYNK_WRITE(V0)
 {
     printf("Got a value: %s\n", param[0].asStr());
 
