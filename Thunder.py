@@ -321,11 +321,11 @@ def update_weather():
                 current_time=time.time()
                 time.sleep(1000)
 
-    except KeyboardInterrupt:
-        if args.clear:
-            for i in range(0, strip.numPixels()):
-                strip.setPixelColor(i, Color(0,0,0))
-            strip.show()
+        except KeyboardInterrupt:
+            if args.clear:
+                for i in range(0, strip.numPixels()):
+                    strip.setPixelColor(i, Color(0,0,0))
+                strip.show()
 
 
 
