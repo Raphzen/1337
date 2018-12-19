@@ -64,10 +64,12 @@ def Static(strip):
     strip.show()
 
 def Off(strip):
+    global status
+    status=0
     global weather_thread
     print(weather_thread.is_alive())
     weather_thread.terminate()
-    #weather_thread.join()
+    weather_thread.join()
     print(weather_thread.is_alive())
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
@@ -136,7 +138,7 @@ def thunder(strip):
     if randint(0,100)>10:
         flash(strip)
            
-def Mostly_Cloudy(strip):
+def Mostly_Cloudy(strip, status):
     Color_Array = []
     def SetSky(strip):
         for i in range(0, strip.numPixels()):
@@ -144,7 +146,7 @@ def Mostly_Cloudy(strip):
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
-    while True:
+    while status==1:
         Cloud=randint(15,30)
         Sky=randint(10,20)
         for j in range(0, Cloud):
@@ -297,7 +299,9 @@ def update_weather():
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
                     global Current_Thread_Mode
-                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,))
+                    global status
+                    status=Value('i',1)
+                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
                     Current_Thread_Mode.daemon=True
                     Current_Thread_Mode.start()
                     
