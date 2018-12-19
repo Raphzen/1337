@@ -51,6 +51,8 @@ void setup()
     Blynk.begin(auth, serv, port);
     tmr.setInterval(1000, [](){
       Blynk.virtualWrite(V0, BlynkMillis()/1000);
+      Blynk.virtualWrite(V1, BlynkMillis()/1000);
+      Blynk.virtualWrite(V2, BlynkMillis()/1000);
     });
 }
 
