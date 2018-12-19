@@ -335,7 +335,7 @@ if __name__ == '__main__':
     global status
     status=Value('i',1)
     global weather_thread
-    weather_thread=Process(target=update_weather, args=(status))
+    weather_thread=Process(target=update_weather, args=(status,))
     weather_thread.daemon=False
     weather_thread.start()
 
