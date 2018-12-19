@@ -66,6 +66,7 @@ def Off(strip):
     global weather_thread
     print(weather_thread.is_alive())
     weather_thread.terminate()
+    weather_thread.join()
     print(weather_thread.is_alive())
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
@@ -293,7 +294,7 @@ def update_weather():
                                                 ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
-                    
+                
                     global Current_Thread_Mode
                     Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy,args=(strip,))
                     Current_Thread_Mode.daemon=False
