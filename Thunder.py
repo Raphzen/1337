@@ -14,10 +14,6 @@ import pywapi
 import string
 import numpy
 import array
-#from Blynk import *
-#import BlynkLib
-#import main
-
 import multiprocessing
 
 # LED strip configuration:
@@ -43,27 +39,7 @@ from flask_restful import Api, Resource , reqparse
 app = Flask(__name__)
 api = Api(app)
 
-
-
-    
-
-# class controller(Resource):
-#     def get(self,status):
-#         if (status == "On" ):
-#             On(strip)
-#             return "superOn" ,200
-#         if (status == "Off" ):
-#             Off(strip)
-#             return "superOff" ,200
-#         return "scheisseOff" , 404
-
-
-# # api.add_resource(controller, "/TurnOn/<string:status>")
-
-
-
 Actual_Mode="Initialize"
-
 
 
 def rotate(array, n):
@@ -157,8 +133,6 @@ def thunder(strip):
     strip.show()        
     if randint(0,100)>10:
         flash(strip)
-
-
            
 def Mostly_Cloudy(strip):
     Color_Array = []
@@ -225,8 +199,6 @@ def State(value):
     #string "255,100,199" komma trennen und jeden wert zu r g und b zuweisen
     
 
-
-
 def update_weather():
     global Actual_Mode
     global weather_thread
@@ -241,7 +213,7 @@ def update_weather():
                 
 
 
-            #Current_Conditions="Rain"
+            Current_Conditions="Mostly Cloudy"
             ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
                 ### kein erneuter Funktionsaufruf wegen Zuruecksetzen der LEDs
             if Actual_Mode!="T-Storm":    
@@ -321,7 +293,9 @@ def update_weather():
                                                 ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
-                    Mostly_Cloudy(strip)
+                    Call_Mostly_Cloudy=multiprocessing.Process(target=Mostly_Cloudy(strip))
+                    Call_Mostly_Cloudy.daemon=True
+                    Call_Mostly_Cloudy.start()
                     
             if Current_Conditions=="Partly Cloudy":
                 Partly_Cloudy(strip)
