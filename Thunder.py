@@ -34,6 +34,7 @@ global strip
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
 strip.begin()
 
+global weather_thread
 
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
@@ -87,6 +88,7 @@ def Static(strip):
 def Off(strip):
     global weather_thread
     weather_thread.terminate()
+    weather_thread.join()
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
     strip.show()
