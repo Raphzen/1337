@@ -85,6 +85,8 @@ def Static(strip):
     strip.show()
 
 def Off(strip):
+    global weather_thread
+    weather_thread.terminate()
     for i in range(0, strip.numPixels()):
         strip.setPixelColor(i,Color(0,0,0))
     strip.show()
@@ -329,10 +331,11 @@ def update_weather():
             strip.show()
 
 
-
+weather_thread=multiprocessing.Process(target=update_weather)
 
 # Main program logic follows:
 if __name__ == '__main__':
+    global weather_thread
     # Process arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
@@ -342,7 +345,6 @@ if __name__ == '__main__':
     if not args.clear:
         print('Use "-c" argument to clear LEDs on exit')
 
-    weather_thread=multiprocessing.Process(target=update_weather)
     weather_thread.start()
 
     app.run(debug=True)
