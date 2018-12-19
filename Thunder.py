@@ -295,7 +295,7 @@ def update_weather():
                     Actual_Mode="Mostly Cloudy"
                     
                     global Current_Thread_Mode
-                    Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy(strip))
+                    Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy,args=(strip,))
                     Current_Thread_Mode.daemon=False
                     Current_Thread_Mode.start()
                     
