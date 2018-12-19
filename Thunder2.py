@@ -33,6 +33,7 @@ strip.begin()
 
 global weather_thread
 global Current_Thread_Mode
+global status 
 
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
@@ -65,7 +66,7 @@ def Static(strip):
 
 def Off(strip):
     global status
-    status=0
+    status.value = 0
     global weather_thread
     print(weather_thread.is_alive())
     weather_thread.terminate()
@@ -138,7 +139,7 @@ def thunder(strip):
     if randint(0,100)>10:
         flash(strip)
            
-def Mostly_Cloudy(strip):
+def Mostly_Cloudy(strip,status):
     Color_Array = []
     def SetSky(strip):
         for i in range(0, strip.numPixels()):
@@ -146,7 +147,7 @@ def Mostly_Cloudy(strip):
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
-    while True:
+    while status.value == 1:
         Cloud=randint(15,30)
         Sky=randint(10,20)
         for j in range(0, Cloud):
@@ -300,7 +301,7 @@ def update_weather(status):
                     Actual_Mode="Mostly Cloudy"
                     global Current_Thread_Mode
                     
-                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,))
+                    Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,status))
                     Current_Thread_Mode.daemon=True
                     Current_Thread_Mode.start()
                     
