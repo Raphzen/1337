@@ -17,8 +17,8 @@ import array
 #from Blynk import *
 #import BlynkLib
 #import main
-from threading import Thread
-import threading
+
+import multiprocessing
 
 # LED strip configuration:
 LED_COUNT      = 144      # Number of LED pixels.
@@ -44,21 +44,6 @@ api = Api(app)
 
 
 
-
-#Test von Return value im multithreading
-class ThreadWithReturnValue(Thread):
-    def __init__(self, group=None, target=None, name=None,
-                 args=(), kwargs={}, Verbose=None):
-        Thread.__init__(self, group, target, name, args, kwargs, Verbose)
-        self._return = None
-    def run(self):
-        if self._Thread__target is not None:
-            self._return = self._Thread__target(*self._Thread__args,
-                                                **self._Thread__kwargs)
-    def join(self):
-        Thread.join(self)
-        return self._return
-
     
 
 # class controller(Resource):
@@ -78,6 +63,8 @@ class ThreadWithReturnValue(Thread):
 
 Actual_Mode="Initialize"
 
+
+
 def rotate(array, n):
     array = (array[len(array) - n:len(array)]  
             + array[0:len(array) - n]) 
@@ -90,8 +77,6 @@ def weather():
     #wind_speed=int(weather_com_result['current_conditions']['wind'])
     Current_Conditions=weather_com_result['current_conditions']['text']
     return Current_Conditions
-
-weather_thread=threading.Thread(target=weather) 
 
 
 def Static(strip):
@@ -236,50 +221,17 @@ def State(value):
 
 app.run(debug=True)
 
-
-
-# Main program logic follows:
-if __name__ == '__main__':
-    # Process arguments
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
-    args = parser.parse_args()
-
-
-
-    # Create NeoPixel object with appropriate configuration.
-    #strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
-    # Intialize the library (must be called once before other functions).
-    #strip.begin()
-
-    print ('Press Ctrl-C to quit.')
-    if not args.clear:
-        print('Use "-c" argument to clear LEDs on exit')
-
-    try:
-        #Start Threads
-        weather_thread.start()
-
+def update_weather():
+        try:
 
         start_time=0
         while True:
-            Current_Conditions=weather_thread.join()
-            #print(Current_Conditions)
-            '''
+
             current_time=time.time()
             if (current_time-start_time)>300:
-                ###Durch weather() ersetzen 
+                Actual_Mode=weather()
+                
 
-                start_time=time.time()
-                weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
-                temperature=int(weather_com_result['current_conditions']['temperature'])
-                temp_f=temperature * 9 / 5 + 32
-                humidity=int(weather_com_result['current_conditions']['humidity'])
-                Current_Conditions=weather_com_result['current_conditions']['text']
-                #beaufort = int(weather_com_result['wind']['speed'])
-                print("Aktuelles Wetter: " + Current_Conditions)
-                #print("Windgeschwindigkeit: " + beaufort)
-            '''
 
             #Current_Conditions="Rain"
             ### Aktuellen Wetter Modus speichern: wenn der Modus==den Current Conditions:
@@ -367,10 +319,28 @@ if __name__ == '__main__':
                 Partly_Cloudy(strip)
                 
             current_time=time.time()
-
+            time.sleep(1000)
 
     except KeyboardInterrupt:
         if args.clear:
             for i in range(0, strip.numPixels()):
                 strip.setPixelColor(i, Color(0,0,0))
             strip.show()
+
+
+
+
+# Main program logic follows:
+if __name__ == '__main__':
+    # Process arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
+    args = parser.parse_args()
+
+    print ('Press Ctrl-C to quit.')
+    if not args.clear:
+        print('Use "-c" argument to clear LEDs on exit')
+
+    weather_thread=multiprocessing.Process(target=update_weather)
+    weather_thread.start()
+
