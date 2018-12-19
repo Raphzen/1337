@@ -298,6 +298,7 @@ def update_weather(status):
             #if Actual_Mode!="Mostly Cloudy":  ### schriebt einmal den Funktionsaufruf. Im aufruf keine schleife.
                                                 ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
             if Current_Conditions=="Mostly Cloudy":
+                print("HI MOSTLY CLOUDY")
                 Actual_Mode="Mostly Cloudy"
                 global Current_Thread_Mode
                 #global status
