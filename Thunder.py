@@ -300,7 +300,7 @@ def update_weather():
                     
                     global Current_Thread_Mode
                     Current_Thread_Mode=multiprocessing.Process(target=Mostly_Cloudy(strip))
-                    Current_Thread_Mode.daemon=True
+                    Current_Thread_Mode.daemon=False
                     Current_Thread_Mode.start()
                     
             if Current_Conditions=="Partly Cloudy":
@@ -332,7 +332,7 @@ if __name__ == '__main__':
     
     global weather_thread
     weather_thread=multiprocessing.Process(target=update_weather)
-    weather_thread.daemon=True
+    weather_thread.daemon=False
     weather_thread.start()
 
     app.run(debug=True)
