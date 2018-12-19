@@ -298,7 +298,7 @@ def update_weather():
                     Actual_Mode="Mostly Cloudy"
                     global Current_Thread_Mode
                     Current_Thread_Mode=Process(target=Mostly_Cloudy,args=(strip,))
-                    #Current_Thread_Mode.daemon=True
+                    Current_Thread_Mode.daemon=True
                     Current_Thread_Mode.start()
                     
             if Current_Conditions=="Partly Cloudy":
@@ -332,7 +332,7 @@ if __name__ == '__main__':
     
     global weather_thread
     weather_thread=Process(target=update_weather)
-    weather_thread.daemon=True
+    weather_thread.daemon=False
     weather_thread.start()
 
     app.run(debug=True)
