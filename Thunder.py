@@ -211,7 +211,7 @@ def update_weather(status):
     try:
         print(status)
         start_time=0
-        while status==1:
+        while status==Value('b', True):
             print(status)
             current_time=time.time()
             if (current_time-start_time)>300:
