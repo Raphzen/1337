@@ -66,7 +66,7 @@ def Static(strip):
 
 def Off(strip):
     global status
-    status.value = 0
+    status = 0
     global weather_thread
     print(weather_thread.is_alive())
     weather_thread.terminate()
