@@ -295,9 +295,8 @@ def update_weather():
                                                 ### schleife wieder einfuehren und bei neuem Actual Mode einen Break des Loops       
                 if Current_Conditions=="Mostly Cloudy":
                     Actual_Mode="Mostly Cloudy"
-                    lock=Lock()
                     global Current_Thread_Mode
-                    Current_Thread_Mode=threading.Thread(target=Mostly_Cloudy,args=(strip,lock,))
+                    Current_Thread_Mode=threading.Thread(target=Mostly_Cloudy,args=(strip,))
                     #Current_Thread_Mode.daemon=False
                     Current_Thread_Mode.start()
                     
