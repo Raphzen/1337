@@ -159,10 +159,10 @@ def State(value):
     return Mode
 
 def State_Do(Mode):
-    if Mode=="OFF"
+    if (Mode=="OFF"):
         Off(strip, value)
         return "LED OFF", 200
-    if Mode=="Mostly_Cloudy"
+    if (Mode=="Mostly_Cloudy"):
         Reset(strip)
         MC=Process(target=Mostly_Cloudy, args=(strip, value,))
         MC.daemon=False
