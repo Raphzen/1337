@@ -159,6 +159,10 @@ def State(value):
         return "Rain", 200
     
     return "", 404
+        
+def start_Flask():
+    app.run(debug=True)
+
 
 # Main program logic follows:
 if __name__ == '__main__':
@@ -177,5 +181,8 @@ if __name__ == '__main__':
     #weather_thread=Process(target=update_weather, args=(status,))
     #weather_thread.daemon=False
     #weather_thread.start()
+    sF=Process(target=start_Flask)
+    sF.daemon=False
+    sF.start()
 
-    app.run(debug=True)
+    
