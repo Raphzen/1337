@@ -126,8 +126,8 @@ def Mostly_Cloudy(strip,value):
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(100/1000.0)
         @app.route('/State/<string:value>')
-            if (value!="Mostly_Cloudy"):
-                break   
+        if (value!="Mostly_Cloudy"):
+            break   
 
 #REST
 @app.route('/State/<string:value>')
