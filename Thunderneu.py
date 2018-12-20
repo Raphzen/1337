@@ -44,7 +44,7 @@ def weather():
     return Current_Conditions
 
 def Off(strip, value):
-    if value==Off:
+    if value=="Off":
         global status
         status.value = 0
         global weather_thread
