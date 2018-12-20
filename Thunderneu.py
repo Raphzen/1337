@@ -160,7 +160,10 @@ def State(value):
     return "", 404
 
 #def State_Do(value):
-    
+#einen abruf machen, der die daten speichert
+#dann abgleich in der while schleife welche daten gespeichert sind
+#wenn übereinstimmt dann weiter wennnicht dann break
+#einen State Do welcher die Funktionen aufruft.  
         
 def start_Flask():
     app.run(debug=True)
