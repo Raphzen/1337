@@ -140,6 +140,8 @@ def thunder(strip):
         flash(strip)
            
 def Mostly_Cloudy(strip,status):
+    global status
+    test=status.value # ausgelagert
     Color_Array = []
     def SetSky(strip):
         for i in range(0, strip.numPixels()):
@@ -147,7 +149,7 @@ def Mostly_Cloudy(strip,status):
             Color_Array[i]=Color(13,80,250)
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
-    while status.value == 1:
+    while test == 1:
         Cloud=randint(15,30)
         Sky=randint(10,20)
         for j in range(0, Cloud):
