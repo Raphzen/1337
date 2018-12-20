@@ -143,7 +143,9 @@ def State(value):
             return "Thunder", 200
     if (value=="Mostly_Cloudy"):
         Reset(strip)
-        Mostly_Cloudy(strip, value)
+        MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+        MC.daemon=False
+        MC.start()
         return "Mostly Cloudy", 200
     if (value=="Rain"):
         Reset(strip)
