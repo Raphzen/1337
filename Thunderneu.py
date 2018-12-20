@@ -148,7 +148,7 @@ def State(value):
         MC.daemon=False
         MC.start()
         return "Mostly Cloudy", 200
-    if (mode!=value):
+    if (value!=Mode):
         MC.terminate()
         MC.join
     if (value=="Rain"):
