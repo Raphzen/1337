@@ -125,16 +125,15 @@ def Mostly_Cloudy(strip,value):
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(100/1000.0)
-        State(value)
-        if (value!="Mostly_Cloudy"):
-            break
+
 
 #REST
 @app.route('/State/<string:value>')
 def State(value):
     global strip
     if (value=="Off"):
-        Mode="OFF"
+        Off(strip, value)
+        return "LED OFF", 200
     if (value=="On"):
         On(strip, value)
         return "LED ON", 200
@@ -144,8 +143,11 @@ def State(value):
             thunder(strip)
             return "Thunder", 200
     if (value=="Mostly_Cloudy"):
-        Mode="Mostly_Cloudy"
-        
+        Mode=value
+        Reset(strip)
+        MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+        MC.daemon=False
+        MC.start()
         return "Mostly Cloudy", 200
     if (value!=Mode):
         MC.terminate()
@@ -156,19 +158,10 @@ def State(value):
         return "Rain", 200
     
     return "", 404
-    return Mode
 
-def State_Do(Mode):
-    if (Mode=="OFF"):
-        Off(strip, value)
-        return "LED OFF", 200
-    if (Mode=="Mostly_Cloudy"):
-        Reset(strip)
-        MC=Process(target=Mostly_Cloudy, args=(strip, value,))
-        MC.daemon=False
-        MC.start()
-
-
+#def State_Do(value):
+    
+        
 def start_Flask():
     app.run(debug=True)
 
