@@ -105,7 +105,7 @@ def thunder(strip):
         flash(strip)
            
 def Mostly_Cloudy(strip,value):
-    while value==Mostly_Cloudy
+    while value=="Mostly_Cloudy"
     Color_Array = []
     def SetSky(strip):
         for i in range(0, strip.numPixels()):
