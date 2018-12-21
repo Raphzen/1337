@@ -107,8 +107,8 @@ def Mostly_Cloudy(strip,value):
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
     while value=="Mostly_Cloudy":
-        @app.route('/State/<string:value>') 
-        print ("Mode is Mostly_Cloudy")
+        #@app.route('/State/<string:value>') 
+        #print("Mode is Mostly Cloudy")
         Cloud=randint(15,30)
         Sky=randint(10,20)
         for j in range(0, Cloud):
@@ -140,7 +140,7 @@ def State(value):
         return "Got Mode: OFF", 200
     if (value=="On"):
         Mode=value
-        return "Got Mode: "Mode, 200
+        return "Got Mode: On", 200
     if (value=="Thunder"):
         while (value=="Thunder"):
             Reset(strip)
