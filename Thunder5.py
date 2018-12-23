@@ -8,6 +8,7 @@ import numpy
 import array
 from multiprocessing import *
 import threading
+import psutil
 
 # LED strip configuration:
 LED_COUNT      = 144      # Number of LED pixels.
@@ -195,7 +196,7 @@ def State_Do(value, Mode):
     print("State Do wird aufgerufen")
     if (value!="Mostly_Cloudy"):
         MC=Process(target=Mostly_Cloudy, args=(strip, value,))
-        MC.exit=True
+        MC.kill()
         MC.join
         print("Prozess ist tot")
     if (Mode=="OFF"):
