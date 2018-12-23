@@ -176,7 +176,7 @@ def State(value):
     return "", 404
 
 
-MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+
 #hier wird gemacht
 #Wenn Modus == XY dann
 def State_Do(value, Mode):
@@ -184,6 +184,7 @@ def State_Do(value, Mode):
     print("State Do wird aufgerufen")
     if (Mode!=Actual_Mode):
         if (value!="Mostly_Cloudy"):
+            MC=Process(target=Mostly_Cloudy, args=(strip, value,))
             #MC.terminate()
             MC.join
         if (Mode=="OFF"):
