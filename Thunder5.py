@@ -149,12 +149,12 @@ def State(value):
     global Mode
     if (value=="Off"):
         Mode=value
-        State_Do(value, Mode)
+        #State_Do(value, Mode)
         return "Got Mode: OFF", 200
         
     if (value=="On"):
         Mode=value
-        State_Do(value, Mode)
+        #State_Do(value, Mode)
         return "Got Mode: On", 200
         
     if (value=="Thunder"):
@@ -164,7 +164,7 @@ def State(value):
             return "Thunder", 200
     if (value=="Mostly_Cloudy"):
         Mode=value
-        State_Do(value,Mode)
+        #State_Do(value,Mode)
         return "Got Mode: Mostly Cloudy", 200
         
     
@@ -172,8 +172,11 @@ def State(value):
     if (value=="Rain"):
         Reset(strip)
         Rain(strip)
-        State_Do(value, Mode)
+        #State_Do(value, Mode)
         return "Rain", 200 
+    
+    if (Mode!=value):
+        State_Do(value, Mode)
     return "", 404
 
 
