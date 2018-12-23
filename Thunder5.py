@@ -176,6 +176,7 @@ def State(value):
 #hier wird gemacht
 #Wenn Modus == XY dann
 def State_Do(value, Mode):
+    global Actual_Mode
     print("State Do wird aufgerufen")
     if (Mode!=Actual_Mode):
         if (Mode=="OFF"):
