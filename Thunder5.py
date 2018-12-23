@@ -55,6 +55,7 @@ def Off(strip, value):
         strip.show()
 
 def On(strip, value):
+    print("Befehl On kommt an")
     if value=="On":
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(i,Color(255,255,255))
