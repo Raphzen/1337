@@ -140,7 +140,7 @@ def Mostly_Cloudy(strip,value):
 value=""
 
 global Actual_Mode
-Actual_Mode="OFF"
+Actual_Mode=""
 #REST API
 #Idee hier: Modus einlesen
 @app.route('/State/<string:value>')
@@ -176,6 +176,7 @@ def State(value):
     
     if (Actual_Mode!=value):
         State_Do(value, Mode)
+
     return "", 404
 
 
@@ -185,28 +186,26 @@ def State(value):
 def State_Do(value, Mode):
     global Actual_Mode
     print("State Do wird aufgerufen")
-    if (Mode!=Actual_Mode):
-        print("Es wird was anderes gemacht!!!")
-        if (value!="Mostly_Cloudy"):
-            MC=Process(target=Mostly_Cloudy, args=(strip, value,))
-            MC.exit=True
-            MC.join
-            print("Prozess ist tot")
-        if (Mode=="OFF"):
-            Off(strip, value)
-            Actual_Mode="OFF"
-            return "LED OFF", 200
-        if (Mode=="On"):
-            On(strip, value)
-            Actual_Mode="ON"
-            return "LED ON", 200
-        if (Mode=="Mostly_Cloudy"):
-            Reset(strip)
-            MC=Process(target=Mostly_Cloudy, args=(strip, value,))
-            MC.daemon=False
-            MC.start()
-            Actual_Mode="Mostly_Cloudy"
-            return "Mostly Cloudy", 200
+    if (value!="Mostly_Cloudy"):
+        MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+        MC.exit=True
+        MC.join
+        print("Prozess ist tot")
+    if (Mode=="OFF"):
+        Off(strip, value)
+        Actual_Mode="OFF"
+        return "LED OFF", 200
+    if (Mode=="On"):
+        On(strip, value)
+        Actual_Mode="ON"
+        return "LED ON", 200
+    if (Mode=="Mostly_Cloudy"):
+        Reset(strip)
+        MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+        MC.daemon=False
+        MC.start()
+        Actual_Mode="Mostly_Cloudy"
+        return "Mostly Cloudy", 200
             
 #einen abruf machen, der die daten speichert
 #dann abgleich in der while schleife welche daten gespeichert sind
