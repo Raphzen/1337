@@ -144,9 +144,11 @@ def State(value):
     if (value=="Off"):
         Mode=value
         return "Got Mode: OFF", 200
+        State_Do()
     if (value=="On"):
         Mode=value
         return "Got Mode: On", 200
+        State_Do()
     if (value=="Thunder"):
         while (value=="Thunder"):
             Reset(strip)
@@ -155,6 +157,7 @@ def State(value):
     if (value=="Mostly_Cloudy"):
         Mode=value
         return "Got Mode: Mostly Cloudy", 200
+        State_Do()
     if (value!=Mode):
         MC.terminate()
         MC.join
@@ -162,26 +165,26 @@ def State(value):
         Reset(strip)
         Rain(strip)
         return "Rain", 200
-    if (Mode!=value):
-        State_Do(Value)
+        State_Do()
 
     return "", 404
 
 #hier wird gemacht
 #Wenn Modus == XY dann
 def State_Do(value):
-    if (Mode=="OFF"):
-        Off(strip, value)
-        return "LED OFF", 200
-    if (Mode=="On"):
-        On(strip, value)
-        return "LED ON", 200
-    if (Mode=="Mostly_Cloudy"):
-        Reset(strip)
-        MC=Process(target=Mostly_Cloudy, args=(strip, value,))
-        MC.daemon=False
-        MC.start()
-        return "Mostly Cloudy", 200
+    if (Mode!=value):
+        if (Mode=="OFF"):
+            Off(strip, value)
+            return "LED OFF", 200
+        if (Mode=="On"):
+            On(strip, value)
+            return "LED ON", 200
+        if (Mode=="Mostly_Cloudy"):
+            Reset(strip)
+            MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+            MC.daemon=False
+            MC.start()
+            return "Mostly Cloudy", 200
 #einen abruf machen, der die daten speichert
 #dann abgleich in der while schleife welche daten gespeichert sind
 #wenn uebereinstimmt dann weiter wenn nicht dann break
@@ -223,6 +226,10 @@ if __name__ == '__main__':
     sF=Process(target=start_Flask)
     sF.daemon=False
     sF.start()
+
+    s=Process(target=State)
+    s.daemon=False
+    s.start()
 
     sD=Process(target=State_Do)
     sD.daemon=False
