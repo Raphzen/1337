@@ -112,7 +112,7 @@ def Mostly_Cloudy(strip,value):
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
     while value=="Mostly_Cloudy":
-        @app.route('/State/<string:value>') #hier wird der value immer eingelesen für die While Loop
+        @app.route('/State/<string:value>') #hier wird der value immer eingelesen fuer die While Loop
         #print("Mode is Mostly Cloudy")
         Cloud=randint(15,30)
         Sky=randint(10,20)
@@ -182,7 +182,7 @@ def State_Do(value):
         return "Mostly Cloudy", 200
 #einen abruf machen, der die daten speichert
 #dann abgleich in der while schleife welche daten gespeichert sind
-#wenn übereinstimmt dann weiter wenn nicht dann break
+#wenn uebereinstimmt dann weiter wenn nicht dann break
 #einen State Do welcher die LED Funktion aufruft.  
 
 #mit flask eine message auf state schreiben z.b. terminate
@@ -211,7 +211,7 @@ if __name__ == '__main__':
     #status=Value('i',1)
     global weather_thread
     #Weather Thread ist ein multiprocess, der das Wetter immer wieder abruft. Auskommentiert, weil das Wetter
-    #über die REST API händisch eingestellt wird.
+    #ueber die REST API händisch eingestellt wird.
 
     #weather_thread=Process(target=update_weather, args=(status,))
     #weather_thread.daemon=False
