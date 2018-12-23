@@ -183,6 +183,7 @@ def State_Do(value, Mode):
     global Actual_Mode
     print("State Do wird aufgerufen")
     if (Mode!=Actual_Mode):
+        print("Es wird was anderes gemacht!!!")
         if (value!="Mostly_Cloudy"):
             MC=Process(target=Mostly_Cloudy, args=(strip, value,))
             MC.exit=True
@@ -202,6 +203,7 @@ def State_Do(value, Mode):
             MC.start()
             Actual_Mode="Mostly_Cloudy"
             return "Mostly Cloudy", 200
+            
 #einen abruf machen, der die daten speichert
 #dann abgleich in der while schleife welche daten gespeichert sind
 #wenn uebereinstimmt dann weiter wenn nicht dann break
