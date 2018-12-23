@@ -113,7 +113,7 @@ def Mostly_Cloudy(strip,value):
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
     while value=="Mostly_Cloudy":
-        #@app.route('/State/<string:value>') #hier wird der value immer eingelesen fuer die While Loop
+        @app.route('/State/<string:value>') #hier wird der value immer eingelesen fuer die While Loop
         #print("Mode is Mostly Cloudy")
         Cloud=randint(15,30)
         Sky=randint(10,20)
