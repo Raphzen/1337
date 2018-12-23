@@ -169,21 +169,25 @@ def State(value):
 
     return "", 404
 
+Actual_Mode="OFF"
 #hier wird gemacht
 #Wenn Modus == XY dann
 def State_Do(value):
-    if (Mode!=value):
+    if (Mode!=Actual_Mode):
         if (Mode=="OFF"):
             Off(strip, value)
+            Actual_Mode="OFF"
             return "LED OFF", 200
         if (Mode=="On"):
             On(strip, value)
+            Actual_Mode="ON"
             return "LED ON", 200
         if (Mode=="Mostly_Cloudy"):
             Reset(strip)
             MC=Process(target=Mostly_Cloudy, args=(strip, value,))
             MC.daemon=False
             MC.start()
+            Actual_Mode="Mostly_Cloudy"
             return "Mostly Cloudy", 200
 #einen abruf machen, der die daten speichert
 #dann abgleich in der while schleife welche daten gespeichert sind
