@@ -37,6 +37,7 @@ from flask_restful import Api, Resource , reqparse
 app = Flask(__name__)
 api = Api(app)
 
+MC=Process(target=Mostly_Cloudy, args=(strip, value,))
 
 #####LED Modes#####
 def weather():
@@ -193,7 +194,7 @@ def State_Do(value, Mode):
             return "LED ON", 200
         if (Mode=="Mostly_Cloudy"):
             Reset(strip)
-            MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+            
             MC.daemon=False
             MC.start()
             Actual_Mode="Mostly_Cloudy"
