@@ -45,7 +45,7 @@ def weather(): #Wetterabruf
 
 def Off(strip, value):  #Strip aus
     if value=="Off":
-        for i in range(0, strip.numPixels()): #zählt jede LED position durch und setzt den RGB Code auf 0,0,0
+        for i in range(0, strip.numPixels()): #zaehlt jede LED position durch und setzt den RGB Code auf 0,0,0
             strip.setPixelColor(i,Color(0,0,0))
         strip.show()
 
@@ -106,8 +106,8 @@ def Mostly_Cloudy(strip,value):     #Wolkenmodus
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
     while value=="Mostly_Cloudy": #Diese Loop sollte unterbrochen werden, sobald ein neuer STeuerbefehl kommt.
-        Cloud=randint(15,30) #Variable Wolken Größe
-        Sky=randint(10,20)  #Variable Himmel Größe --> Anzahl der LEDs die durchlaufen
+        Cloud=randint(15,30) #Variable Wolken Groeße
+        Sky=randint(10,20)  #Variable Himmel Groeße --> Anzahl der LEDs die durchlaufen
         for j in range(0, Cloud):
             Color_Array[1]=Color(120,120,120)
             for k in range(0, strip.numPixels()):
@@ -115,7 +115,7 @@ def Mostly_Cloudy(strip,value):     #Wolkenmodus
             strip.show()
             
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
-                    + Color_Array[0:len(Color_Array) - 1]) #alle Einträge werden eine Position weiter geschoben
+                    + Color_Array[0:len(Color_Array) - 1]) #alle Eintraege werden eine Position weiter geschoben
             time.sleep(100/1000.0)
         for l in range(0, Sky):
             Color_Array[1]=Color(13,80,250)
