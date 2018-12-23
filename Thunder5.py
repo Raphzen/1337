@@ -211,7 +211,7 @@ if __name__ == '__main__':
     #status=Value('i',1)
     global weather_thread
     #Weather Thread ist ein multiprocess, der das Wetter immer wieder abruft. Auskommentiert, weil das Wetter
-    #ueber die REST API händisch eingestellt wird.
+    #ueber die REST API haendisch eingestellt wird.
 
     #weather_thread=Process(target=update_weather, args=(status,))
     #weather_thread.daemon=False
