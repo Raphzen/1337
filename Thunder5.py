@@ -37,8 +37,6 @@ from flask_restful import Api, Resource , reqparse
 app = Flask(__name__)
 api = Api(app)
 
-MC=Process(target=Mostly_Cloudy, args=(strip, value,))
-
 #####LED Modes#####
 def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
@@ -136,6 +134,10 @@ def Mostly_Cloudy(strip,value):
             Color_Array = (Color_Array[len(Color_Array) - 1:len(Color_Array)]  
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(100/1000.0)
+
+
+MC=Process(target=Mostly_Cloudy, args=(strip, value,))
+
 
 global Actual_Mode
 Actual_Mode="OFF"
