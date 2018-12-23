@@ -49,6 +49,7 @@ def weather():
 
 def Off(strip, value):
     print("Befehl Off kommt an")
+    Actual_Mode="OFF"
     if value=="Off":
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(i,Color(0,0,0))
@@ -56,6 +57,7 @@ def Off(strip, value):
 
 def On(strip, value):
     print("Befehl On kommt an")
+    Actual_Mode ="On"
     if value=="On":
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(i,Color(255,255,255))
@@ -104,6 +106,7 @@ def thunder(strip):
         flash(strip)
            
 def Mostly_Cloudy(strip,value):
+    Actual_Mode = "Mostly_Cloudy"
     global Mode
     Color_Array = []
     def SetSky(strip):
