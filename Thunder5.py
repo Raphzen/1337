@@ -136,7 +136,7 @@ def Mostly_Cloudy(strip,value):
             time.sleep(100/1000.0)
 
 
-
+value=""
 
 global Actual_Mode
 Actual_Mode="OFF"
