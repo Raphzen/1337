@@ -148,6 +148,9 @@ def State(value):
     global strip
     global Mode
     global Actual_Mode
+    if (Actual_Mode!=value):
+        print("HALLO")
+        State_Do(value, Mode)
     if (value=="Off"):
         Mode=value
         #State_Do(value, Mode)
@@ -174,9 +177,7 @@ def State(value):
         #State_Do(value, Mode)
         return "Rain", 200 
     
-    if (Actual_Mode!=value):
-        print("HALLO")
-        State_Do(value, Mode)
+    
 
     return "", 404
 
