@@ -147,6 +147,7 @@ Actual_Mode="OFF"
 def State(value):
     global strip
     global Mode
+    global Actual_Mode
     if (value=="Off"):
         Mode=value
         #State_Do(value, Mode)
@@ -166,8 +167,6 @@ def State(value):
         Mode=value
         #State_Do(value,Mode)
         return "Got Mode: Mostly Cloudy", 200
-        
-    
     
     if (value=="Rain"):
         Reset(strip)
@@ -175,7 +174,7 @@ def State(value):
         #State_Do(value, Mode)
         return "Rain", 200 
     
-    if (Mode!=value):
+    if (Actual_Mode!=value):
         State_Do(value, Mode)
     return "", 404
 
