@@ -139,9 +139,8 @@ def Mostly_Cloudy(strip,value):
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(100/1000.0)
 
-
+global value
 value=""
-
 global Actual_Mode
 Actual_Mode=""
 global Mode
@@ -209,10 +208,11 @@ def State_Do(value, Mode):
         return "LED ON", 200
     if (Mode=="Mostly_Cloudy"):
         Reset(strip)
+        Actual_Mode="Mostly_Cloudy"
         MC=Process(target=Mostly_Cloudy, args=(strip, value,))
         MC.daemon=False
         MC.start()
-        Actual_Mode="Mostly_Cloudy"
+        
         return "Mostly Cloudy", 200
             
 #einen abruf machen, der die daten speichert
