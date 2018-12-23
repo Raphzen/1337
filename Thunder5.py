@@ -162,7 +162,9 @@ def State(value):
         Reset(strip)
         Rain(strip)
         return "Rain", 200
-    
+    if (Mode!=value):
+        State_Do(Value)
+
     return "", 404
 
 #hier wird gemacht
@@ -221,3 +223,7 @@ if __name__ == '__main__':
     sF=Process(target=start_Flask)
     sF.daemon=False
     sF.start()
+
+    sD=Process(target=State_Do)
+    sD.daemon=False
+    sD.start()
