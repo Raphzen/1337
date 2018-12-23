@@ -184,7 +184,7 @@ def State_Do(value, Mode):
     print("State Do wird aufgerufen")
     if (Mode!=Actual_Mode):
         if (value!="Mostly_Cloudy"):
-            MC.terminate()
+            #MC.terminate()
             MC.join
         if (Mode=="OFF"):
             Off(strip, value)
