@@ -141,6 +141,8 @@ value=""
 
 global Actual_Mode
 Actual_Mode=""
+global Mode
+Mode =""
 #REST API
 #Idee hier: Modus einlesen
 @app.route('/State/<string:value>')
@@ -151,6 +153,7 @@ def State(value):
     if (Actual_Mode!=value):
         print("HALLO")
         State_Do(value, Mode)
+
     if (value=="Off"):
         Mode=value
         #State_Do(value, Mode)
