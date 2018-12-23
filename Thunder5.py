@@ -175,6 +175,7 @@ def State(value):
         return "Rain", 200 
     
     if (Actual_Mode!=value):
+        print("HALLO")
         State_Do(value, Mode)
 
     return "", 404
