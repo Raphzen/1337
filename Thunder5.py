@@ -144,11 +144,11 @@ def State(value):
     if (value=="Off"):
         Mode=value
         return "Got Mode: OFF", 200
-        State_Do()
+        State_Do(value, Mode)
     if (value=="On"):
         Mode=value
         return "Got Mode: On", 200
-        State_Do()
+        State_Do(value, Mode)
     if (value=="Thunder"):
         while (value=="Thunder"):
             Reset(strip)
@@ -157,7 +157,7 @@ def State(value):
     if (value=="Mostly_Cloudy"):
         Mode=value
         return "Got Mode: Mostly Cloudy", 200
-        State_Do()
+        State_Do(value,Mode)
     if (value!=Mode):
         MC.terminate()
         MC.join
@@ -165,14 +165,14 @@ def State(value):
         Reset(strip)
         Rain(strip)
         return "Rain", 200
-        State_Do()
+        State_Do(value, Mode)
 
     return "", 404
 
 Actual_Mode="OFF"
 #hier wird gemacht
 #Wenn Modus == XY dann
-def State_Do(value):
+def State_Do(value, Mode):
     if (Mode!=Actual_Mode):
         if (Mode=="OFF"):
             Off(strip, value)
