@@ -135,7 +135,8 @@ def Mostly_Cloudy(strip,value):
                     + Color_Array[0:len(Color_Array) - 1]) 
             time.sleep(100/1000.0)
 
-
+global Actual_Mode
+Actual_Mode="OFF"
 #REST API
 #Idee hier: Modus einlesen
 @app.route('/State/<string:value>')
@@ -171,7 +172,7 @@ def State(value):
 
     return "", 404
 
-Actual_Mode="OFF"
+
 #hier wird gemacht
 #Wenn Modus == XY dann
 def State_Do(value, Mode):
