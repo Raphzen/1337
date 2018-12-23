@@ -185,7 +185,7 @@ def State_Do(value, Mode):
     if (Mode!=Actual_Mode):
         if (value!="Mostly_Cloudy"):
             MC=Process(target=Mostly_Cloudy, args=(strip, value,))
-            MC.exit()
+            MC.Event()
             MC.join
         if (Mode=="OFF"):
             Off(strip, value)
