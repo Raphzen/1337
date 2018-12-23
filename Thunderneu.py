@@ -106,8 +106,8 @@ def Mostly_Cloudy(strip,value):     #Wolkenmodus
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
     while value=="Mostly_Cloudy": #Diese Loop sollte unterbrochen werden, sobald ein neuer STeuerbefehl kommt.
-        Cloud=randint(15,30) #Variable Wolken Groeße
-        Sky=randint(10,20)  #Variable Himmel Groeße --> Anzahl der LEDs die durchlaufen
+        Cloud=randint(15,30) #Variable Wolken Groesse
+        Sky=randint(10,20)  #Variable Himmel Groesse --> Anzahl der LEDs die durchlaufen
         for j in range(0, Cloud):
             Color_Array[1]=Color(120,120,120)
             for k in range(0, strip.numPixels()):
