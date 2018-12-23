@@ -19,21 +19,26 @@ LED_BRIGHTNESS = 50     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False  # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
+#strip Definition
 global strip
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL, strip_type=ws.WS2811_STRIP_GRB)
 strip.begin()
 
+#global Variables Def.
 global weather_thread
 global Current_Thread_Mode
 global status 
 
+#import REST API Lib.
 from flask import Flask
 from flask_restful import Api, Resource , reqparse
 
-# API FLASK
+# API FLASK Def.
 app = Flask(__name__)
 api = Api(app)
 
+
+#####LED Modes#####
 def weather():
     weather_com_result=pywapi.get_weather_from_weather_com('SNXX0006')
     #temperature=int(weather_com_result['current_conditions']['temperature'])
@@ -107,7 +112,7 @@ def Mostly_Cloudy(strip,value):
             strip.setPixelColor(i, Color_Array[i])
     SetSky(strip)
     while value=="Mostly_Cloudy":
-        #@app.route('/State/<string:value>') 
+        @app.route('/State/<string:value>') #hier wird der value immer eingelesen für die While Loop
         #print("Mode is Mostly Cloudy")
         Cloud=randint(15,30)
         Sky=randint(10,20)
@@ -130,7 +135,8 @@ def Mostly_Cloudy(strip,value):
             time.sleep(100/1000.0)
 
 
-#REST
+#REST API
+#Idee hier: Modus einlesen
 @app.route('/State/<string:value>')
 def State(value):
     global strip
@@ -159,6 +165,8 @@ def State(value):
     
     return "", 404
 
+#hier wird gemacht
+#Wenn Modus == XY dann
 def State_Do(value):
     if (Mode=="OFF"):
         Off(strip, value)
@@ -174,12 +182,13 @@ def State_Do(value):
         return "Mostly Cloudy", 200
 #einen abruf machen, der die daten speichert
 #dann abgleich in der while schleife welche daten gespeichert sind
-#wenn übereinstimmt dann weiter wennnicht dann break
-#einen State Do welcher die Funktionen aufruft.  
+#wenn übereinstimmt dann weiter wenn nicht dann break
+#einen State Do welcher die LED Funktion aufruft.  
 
 #mit flask eine message auf state schreiben z.b. terminate
 #if terminate is true --> break loop
-        
+
+# Start REST API   
 def start_Flask():
     app.run(debug=True)
 
@@ -187,6 +196,7 @@ def start_Flask():
 # Main program logic follows:
 if __name__ == '__main__':
     global weather_thread
+    #Das war so im Beispiel, keine Ahnung was ich hier mache...
     # Process arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('-c', '--clear', action='store_true', help='clear the display on exit')
@@ -195,14 +205,19 @@ if __name__ == '__main__':
     print ('Press Ctrl-C to quit.')
     if not args.clear:
         print('Use "-c" argument to clear LEDs on exit')
+
+    
     global status
     #status=Value('i',1)
     global weather_thread
+    #Weather Thread ist ein multiprocess, der das Wetter immer wieder abruft. Auskommentiert, weil das Wetter
+    #über die REST API händisch eingestellt wird.
+
     #weather_thread=Process(target=update_weather, args=(status,))
     #weather_thread.daemon=False
     #weather_thread.start()
+
+    #Multiprocess der REST API
     sF=Process(target=start_Flask)
     sF.daemon=False
     sF.start()
-
-    
