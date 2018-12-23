@@ -188,6 +188,7 @@ def State_Do(value, Mode):
             MC=Process(target=Mostly_Cloudy, args=(strip, value,))
             MC.exit=True
             MC.join
+            print("Prozess ist tot")
         if (Mode=="OFF"):
             Off(strip, value)
             Actual_Mode="OFF"
