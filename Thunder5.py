@@ -49,7 +49,7 @@ def weather():
     return Current_Conditions
 
 def Off(strip, value):
-    print("Ich bin aus")
+    print("Befehl Off kommt an")
     if value=="Off":
         for i in range(0, strip.numPixels()):
             strip.setPixelColor(i,Color(0,0,0))
