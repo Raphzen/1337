@@ -150,8 +150,9 @@ def State(value):
         
     if (value=="On"):
         Mode=value
-        return "Got Mode: On", 200
         State_Do(value, Mode)
+        return "Got Mode: On", 200
+        
     if (value=="Thunder"):
         while (value=="Thunder"):
             Reset(strip)
