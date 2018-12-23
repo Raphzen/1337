@@ -144,8 +144,9 @@ def State(value):
     global Mode
     if (value=="Off"):
         Mode=value
-        return "Got Mode: OFF", 200
         State_Do(value, Mode)
+        return "Got Mode: OFF", 200
+        
     if (value=="On"):
         Mode=value
         return "Got Mode: On", 200
