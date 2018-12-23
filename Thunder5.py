@@ -136,7 +136,6 @@ def Mostly_Cloudy(strip,value):
             time.sleep(100/1000.0)
 
 
-MC=Process(target=Mostly_Cloudy, args=(strip, value,))
 
 
 global Actual_Mode
@@ -177,6 +176,7 @@ def State(value):
     return "", 404
 
 
+MC=Process(target=Mostly_Cloudy, args=(strip, value,))
 #hier wird gemacht
 #Wenn Modus == XY dann
 def State_Do(value, Mode):
