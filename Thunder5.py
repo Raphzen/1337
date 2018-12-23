@@ -164,9 +164,7 @@ def State(value):
         State_Do(value,Mode)
         return "Got Mode: Mostly Cloudy", 200
         
-    if (value!="Mostly_Cloudy"):
-        MC.terminate()
-        MC.join
+    
     
     if (value=="Rain"):
         Reset(strip)
@@ -182,6 +180,9 @@ def State_Do(value, Mode):
     global Actual_Mode
     print("State Do wird aufgerufen")
     if (Mode!=Actual_Mode):
+        if (value!="Mostly_Cloudy"):
+            MC.terminate()
+            MC.join
         if (Mode=="OFF"):
             Off(strip, value)
             Actual_Mode="OFF"
