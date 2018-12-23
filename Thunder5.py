@@ -163,15 +163,15 @@ def State(value):
         State_Do(value,Mode)
         return "Got Mode: Mostly Cloudy", 200
         
-    if (value!=Mode):
+    if (value!="Mostly_Cloudy"):
         MC.terminate()
         MC.join
+    
     if (value=="Rain"):
         Reset(strip)
         Rain(strip)
-        return "Rain", 200
         State_Do(value, Mode)
-
+        return "Rain", 200 
     return "", 404
 
 
