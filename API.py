@@ -8,7 +8,7 @@ import numpy
 import array
 from multiprocessing import *
 import threading
-import LED_Modes
+from LED_Modes import *
 
 from flask import Flask #REST API Modul
 from flask_restful import Api, Resource , reqparse

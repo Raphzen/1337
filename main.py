@@ -8,7 +8,7 @@ import numpy
 import array
 from multiprocessing import *
 import threading
-from LED_Modes import *
+import LED_Modes
 import API
 from API import start_Flask
 
