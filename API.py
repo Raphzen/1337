@@ -9,7 +9,6 @@ import array
 from multiprocessing import *
 import threading
 import LED_Modes
-import API
 
 from flask import Flask #REST API Modul
 from flask_restful import Api, Resource , reqparse
@@ -81,3 +80,5 @@ if __name__ == '__main__':
     sF=Process(target=start_Flask)
     sF.daemon=False
     sF.start()
+
+    
